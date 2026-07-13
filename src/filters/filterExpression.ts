@@ -69,21 +69,21 @@ export function buildOpacityExpr(renumberField: string): ExpressionSpecification
   ] as unknown as ExpressionSpecification;
 }
 
-/** circle-radius 隨 zoom 內插（拉遠仍看得到、拉近可點）。 */
-export function radiusExpr(): ExpressionSpecification {
+/** circle-radius 隨 zoom 內插（拉遠仍看得到、拉近可點），可乘以 scale 倍率。 */
+export function radiusExpr(scale = 1): ExpressionSpecification {
   return [
     "interpolate",
     ["linear"],
     ["zoom"],
     9,
-    1.4,
+    1.4 * scale,
     12,
-    2.6,
+    2.6 * scale,
     14,
-    4.2,
+    4.2 * scale,
     16,
-    6.5,
+    6.5 * scale,
     18,
-    9,
+    9 * scale,
   ] as unknown as ExpressionSpecification;
 }

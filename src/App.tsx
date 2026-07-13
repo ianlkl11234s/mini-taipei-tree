@@ -12,7 +12,7 @@ type Theme = "light" | "dark";
 function initTheme(): Theme {
   const saved = localStorage.getItem("mtt-theme");
   if (saved === "light" || saved === "dark") return saved;
-  return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  return "light";
 }
 
 export default function App() {
@@ -38,7 +38,7 @@ export default function App() {
             <IconTree size={20} />
           </span>
           <span>
-            台北行道樹探索 <span className="sub">四年間的新增與消失</span>
+            台北行道樹探索 <span className="sub">三時點清冊比對</span>
           </span>
         </div>
         <nav className="header-nav">
@@ -65,10 +65,10 @@ export default function App() {
               <span className="idx">01</span>
               <span className="rule" />
             </div>
-            <h2 className="section-title">在地圖上找你關心的那棵樹</h2>
+            <h2 className="section-title">公園處整理的行道樹清冊地圖</h2>
             <p className="section-sub">
-              深色底圖上，每一個點是一棵行道樹。用左側面板疊加時段、狀態、樹種、胸徑、行政區等條件；
-              點任一棵樹看它的樹種、粗細與狀態。
+              地圖上每一個點代表一棵在冊行道樹。可透過左側面板依時段、狀態、樹種、胸徑、行政區等條件篩選；
+              點選任一棵樹可查看其樹種、胸徑與清冊狀態。
             </p>
           </div>
           <MapExplorer onMap={(m) => (mapRef.current = m)} />

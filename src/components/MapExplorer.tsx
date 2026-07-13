@@ -2,9 +2,11 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import type { Map as MapboxMap, LngLatLike, MapMouseEvent } from "mapbox-gl";
 import { MapView } from "../map/MapView";
 import { useTreeLayer, TREE_LAYER_ID, type TreeFeatureClick } from "../map/useTreeLayer";
+import { useHeatmapLayer } from "../map/useHeatmapLayer";
+import { useH3Layer } from "../map/useH3Layer";
 import { FIELDS, type SegmentKey } from "../lib/dataSource";
 import { type TreeStatus } from "../lib/status";
-import { defaultFilterState, type FilterState } from "../filters/types";
+import { defaultFilterState, type FilterState, type MapViewMode } from "../filters/types";
 import { ControlPanel } from "./ControlPanel";
 import { Legend } from "./Legend";
 import { TreePopup } from "./TreePopup";
@@ -69,6 +71,8 @@ export function MapExplorer({ onMap }: MapExplorerProps) {
   }, []);
 
   useTreeLayer(map, styleEpoch, filter, onFeatureClick);
+  useHeatmapLayer(map, styleEpoch, filter);
+  useH3Layer(map, styleEpoch, filter);
 
   // popup 像素定位：隨地圖移動重算
   useEffect(() => {
@@ -121,6 +125,8 @@ export function MapExplorer({ onMap }: MapExplorerProps) {
   const onSpeciesClear = () => setFilter((f) => ({ ...f, species: new Set() }));
   const onDbh = (v: [number, number]) => setFilter((f) => ({ ...f, dbhRange: v }));
   const onStreetOnly = (v: boolean) => setFilter((f) => ({ ...f, streetOnly: v }));
+  const onCircleScale = (v: number) => setFilter((f) => ({ ...f, circleScale: v }));
+  const onMapView = (v: MapViewMode) => setFilter((f) => ({ ...f, mapView: v }));
   const onDistrictToggle = (d: string) =>
     setFilter((f) => {
       const next = new Set(f.districts);
@@ -157,6 +163,8 @@ export function MapExplorer({ onMap }: MapExplorerProps) {
         onSpeciesClear={onSpeciesClear}
         onDbh={onDbh}
         onStreetOnly={onStreetOnly}
+        onCircleScale={onCircleScale}
+        onMapView={onMapView}
         onDistrictToggle={onDistrictToggle}
         onReset={onReset}
         onClose={() => setPanelOpen(false)}

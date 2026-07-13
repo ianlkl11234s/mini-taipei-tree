@@ -44,19 +44,18 @@ export function Hero() {
 
   return (
     <section className="hero">
-      <span className="hero-eyebrow">台北市 · 逐棵行道樹 · 三時點清冊</span>
+      <span className="hero-eyebrow">台北市 · 逐棵行道樹 · 三時點清冊比對</span>
       <h1>
-        四年間，台北的行道樹<br />
-        <span className="accent">悄悄換了一輪</span>
+        從公園處清冊<br />
+        <span className="accent">看見樹種的變化</span>
       </h1>
       <p className="lede">
-        比對 2022、2024、2026 三個時點的官方行道樹清冊，看見每一棵樹的
-        <em>維持、消失與新增</em>。哪裡的樹不見了、哪裡種了新樹、什麼樹種變動最劇烈——
-        都在這張地圖上。
+        比對 2022、2024、2026 三個時點的台北市公園處行道樹清冊，呈現每一棵樹在不同時點的
+        <em>在冊、離冊與新入冊</em>狀態。
       </p>
       <p className="disclaimer">
-        「消失」指的是<em style={{ fontStyle: "normal", fontWeight: 600 }}>從清冊上不見了</em>，
-        可能是移除、也可能只是編號重整。<a href="#about">資料方法與限制 →</a>
+        「消失」指的是<em style={{ fontStyle: "normal", fontWeight: 600 }}>從清冊上不再出現</em>，
+        原因可能包含移除、枯死或編號重整。<a href="#about">資料方法與限制 →</a>
       </p>
 
       <div className="kpi-row">

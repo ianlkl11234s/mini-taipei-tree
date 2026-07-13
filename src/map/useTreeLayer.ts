@@ -63,7 +63,7 @@ export function useTreeLayer(
           "source-layer": SOURCE.sourceLayer,
           paint: {
             "circle-color": buildColorExpr(statusField),
-            "circle-radius": radiusExpr(),
+            "circle-radius": radiusExpr(filterRef.current.circleScale),
             "circle-opacity": buildOpacityExpr(renumberField),
             "circle-stroke-width": 0.4,
             "circle-stroke-color": "rgba(6,20,12,0.55)",
@@ -110,5 +110,8 @@ export function useTreeLayer(
     if (renumberField) {
       map.setPaintProperty(TREE_LAYER_ID, "circle-opacity", buildOpacityExpr(renumberField));
     }
+    map.setPaintProperty(TREE_LAYER_ID, "circle-radius", radiusExpr(filter.circleScale));
+    const vis = filter.mapView === "points" ? "visible" : "none";
+    map.setLayoutProperty(TREE_LAYER_ID, "visibility", vis);
   }, [map, styleEpoch, filter]);
 }

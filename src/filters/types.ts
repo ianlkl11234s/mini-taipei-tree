@@ -1,6 +1,8 @@
 import type { SegmentKey } from "../lib/dataSource";
 import type { TreeStatus } from "../lib/status";
 
+export type MapViewMode = "points" | "heatmap" | "h3";
+
 /** 胸徑上限：滑桿最大值代表「> 60cm（開放上界）」。 */
 export const DBH_MAX_CAP = 60;
 
@@ -35,6 +37,10 @@ export interface FilterState {
   streetOnly: boolean;
   /** 選定行政區（空 = 全部）。 */
   districts: Set<string>;
+  /** 點位大小倍率（0.5–2.0，預設 1.0）。 */
+  circleScale: number;
+  /** 地圖視圖模式。 */
+  mapView: MapViewMode;
 }
 
 export function defaultFilterState(): FilterState {
@@ -45,5 +51,7 @@ export function defaultFilterState(): FilterState {
     dbhRange: [0, DBH_MAX_CAP],
     streetOnly: false,
     districts: new Set(),
+    circleScale: 1.0,
+    mapView: "points",
   };
 }

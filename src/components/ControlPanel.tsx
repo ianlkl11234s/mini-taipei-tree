@@ -1,6 +1,12 @@
 import { SEGMENTS, type SegmentKey } from "../lib/dataSource";
 import { STATUS_META, STATUS_ORDER, type TreeStatus } from "../lib/status";
-import { DISTRICTS, type FilterState } from "../filters/types";
+import { DISTRICTS, type FilterState, type MapViewMode } from "../filters/types";
+
+const VIEW_MODES: { key: MapViewMode; label: string }[] = [
+  { key: "points", label: "點位" },
+  { key: "heatmap", label: "熱力圖" },
+  { key: "h3", label: "H3 網格" },
+];
 import { fmtInt } from "../lib/format";
 import { DbhRange } from "./DbhRange";
 import { SpeciesFilter, type SpeciesItem } from "./SpeciesFilter";
@@ -18,6 +24,8 @@ interface Props {
   onSpeciesClear: () => void;
   onDbh: (v: [number, number]) => void;
   onStreetOnly: (v: boolean) => void;
+  onCircleScale: (v: number) => void;
+  onMapView: (v: MapViewMode) => void;
   onDistrictToggle: (d: string) => void;
   onReset: () => void;
   onClose: () => void;
@@ -55,6 +63,22 @@ export function ControlPanel(p: Props) {
               >
                 {s.label}
                 {!s.available && <span className="tag">{s.note}</span>}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* 地圖視圖 */}
+        <div className="cp-group">
+          <div className="cp-legend">地圖視圖</div>
+          <div className="segmented">
+            {VIEW_MODES.map((v) => (
+              <button
+                key={v.key}
+                className={filter.mapView === v.key ? "active" : ""}
+                onClick={() => p.onMapView(v.key)}
+              >
+                {v.label}
               </button>
             ))}
           </div>
@@ -121,6 +145,22 @@ export function ControlPanel(p: Props) {
             </span>
             <span className={`switch${filter.streetOnly ? " on" : ""}`} />
           </button>
+        </div>
+
+        {/* 點位大小 */}
+        <div className="cp-group">
+          <div className="cp-legend">
+            點位大小 <span className="hint">{Math.round(filter.circleScale * 100)}%</span>
+          </div>
+          <input
+            type="range"
+            className="cp-range"
+            min={0.3}
+            max={2.5}
+            step={0.1}
+            value={filter.circleScale}
+            onChange={(e) => p.onCircleScale(Number(e.target.value))}
+          />
         </div>
 
         {/* 行政區 */}

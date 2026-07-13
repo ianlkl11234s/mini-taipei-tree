@@ -106,16 +106,16 @@ export function Infograph({ onFlyTo }: InfographProps) {
         <span className="idx">02</span>
         <span className="rule" />
       </div>
-      <h2 className="section-title">數字背後的故事</h2>
+      <h2 className="section-title">清冊數據摘要</h2>
       <p className="section-sub">
-        地圖看得到「哪裡」，統計看得到「什麼樹、多嚴重」。以下每張圖都附一句白話結論與資料範圍——
-        「消失」一律指<em style={{ fontStyle: "normal", fontWeight: 600 }}>從官方清冊上不見了</em>，不等於一定被砍除。
+        以下統計皆來自三時點清冊的比對結果。「消失」一律指
+        <em style={{ fontStyle: "normal", fontWeight: 600 }}>該編號在下一時點的清冊中不再出現</em>，原因可能包含移除、枯死或編號重整。
       </p>
 
       {/* ① 三時點總量 waterfall（全景，恆含公園） */}
       <Block
         n="①"
-        title="四年間，總量先增後減"
+        title="三時點在冊總量變化"
         insight={<Overview1Insight overview={overview} />}
         note="2022 / 2024 / 2026 三時點 · 全部（含公園綠地）· 深綠＝各時點在冊總量，綠＝新增、紅＝消失"
       >
@@ -160,7 +160,7 @@ export function Infograph({ onFlyTo }: InfographProps) {
         {/* ② 樹種消失率排行 */}
         <Block
           n="②"
-          title="哪些樹種消失得最兇"
+          title="各樹種離冊率排行"
           hint="基數 ≥ 100 的樹種才入榜，避免小樣本雜訊"
           insight={<SpeciesRateInsight seg={seg} street={street} species={species} />}
           note={`${scopeNote()} · 分母為該段起點在冊數 · 依消失率排序取前 10`}
@@ -171,7 +171,7 @@ export function Infograph({ onFlyTo }: InfographProps) {
         {/* ③ 淨流失 vs 淨增 */}
         <Block
           n="③"
-          title="種什麼、取代什麼"
+          title="各樹種淨變化"
           hint="淨變化 = 新增 − 消失，正為淨增、負為淨流失"
           insight={<NetInsight seg={seg} species={species} />}
           note={`${segLabel} · ${ALL_ONLY} · 消失樹屬性取自舊期、新增取自新期`}
@@ -189,8 +189,8 @@ export function Infograph({ onFlyTo }: InfographProps) {
       {/* ④ 胸徑 / 樹高分級距 */}
       <Block
         n="④"
-        title="越大的樹，越容易消失嗎？"
-        hint="打破直覺：樹高與消失率單調相關，胸徑卻不是"
+        title="尺寸與離冊率的關係"
+        hint="樹高與離冊率呈單調遞減，胸徑則否"
         insight={<BinsInsight seg={seg} street={street} height={height.segments[seg]} />}
         note={`${scopeNote()} · 縱軸為消失率 · 兩圖共用縱軸刻度以利對照 · n＝各級距基數`}
       >
@@ -209,7 +209,7 @@ export function Infograph({ onFlyTo }: InfographProps) {
       {/* ⑤ 12 行政區 */}
       <Block
         n="⑤"
-        title="12 行政區，冷熱不均"
+        title="12 行政區離冊率分布"
         hint="條末小字為該區淨變化（紅＝淨減、綠＝淨增）"
         insight={<DistrictInsight street={street} districts={districts.segments[seg]} />}
         note={`${scopeNote()} · 依消失率排序`}
@@ -379,9 +379,9 @@ function Overview1Insight({ overview }: { overview: NonNullable<ReturnType<typeo
   const s26 = overview.segments.find((x) => x.key === "2426")!;
   return (
     <>
-      四年間先增後減：2022→2024 淨增 <b>{fmtSigned(s24.net)}</b> 棵，2024→2026 反轉為淨減{" "}
-      <b>{fmtSigned(s26.net)}</b> 棵，繞一圈回到約 9.2 萬棵。每一段都同時有大批新增與消失——
-      <b>總量穩定，不代表是「原班人馬」</b>。
+      三時點總量變化：2022→2024 淨變化 <b>{fmtSigned(s24.net)}</b> 棵，2024→2026 淨變化{" "}
+      <b>{fmtSigned(s26.net)}</b> 棵。每一段皆同時有新入冊與離冊紀錄，
+      <b>總量接近不代表個別樹木未異動</b>。
     </>
   );
 }
@@ -402,10 +402,10 @@ function SpeciesRateInsight({
   if (t.length === 0) return <>此範圍沒有基數 ≥ 100 的樹種。</>;
   return (
     <>
-      消失率最高：<b>{t[0].species} {fmtPct(pickRate(t[0], street))}</b>
+      離冊率前三：<b>{t[0].species} {fmtPct(pickRate(t[0], street))}</b>
       {t[1] && <>、{t[1].species} {fmtPct(pickRate(t[1], street))}</>}
-      {t[2] && <>、{t[2].species} {fmtPct(pickRate(t[2], street))}</>}。多是基數不大、集中一次性汰換的樹種；
-      切換「只看道路」會發現部分榜首其實集中在特定公園。
+      {t[2] && <>、{t[2].species} {fmtPct(pickRate(t[2], street))}</>}。基數較小的樹種排名波動較大，
+      可切換「只看道路」觀察是否集中於特定公園。
     </>
   );
 }
@@ -417,8 +417,8 @@ function NetInsight({ seg, species }: { seg: SegKey; species: NonNullable<Return
   if (seg === "2426") {
     return (
       <>
-        淨變化極不對稱：流失最多的「<b>{loss0.species}</b>」淨減 {Math.abs(loss0.net)} 棵，補種最多的「
-        <b>{gain0.species}</b>」也只淨增 {gain0.net} 棵——<b>成熟大樹一批批退場，新植數量遠遠追不上</b>。
+        淨減最多的「<b>{loss0.species}</b>」離冊 {Math.abs(loss0.net)} 棵，淨增最多的「
+        <b>{gain0.species}</b>」新入冊 {gain0.net} 棵。離冊數量與新入冊數量之間存在落差。
       </>
     );
   }
@@ -445,8 +445,8 @@ function BinsInsight({
   if (seg === "2426") {
     return (
       <>
-        <b>樹越高，越不容易從清冊消失</b>：從 &lt;5m 的 {fmtPct(first)} 一路降到 &gt;20m 的 {fmtPct(last)}（單調遞減）。
-        但胸徑沒有這種規律——最細與最粗的級距消失率都偏高，呈 <b>U 型</b>，並非「越粗越容易不見」。
+        樹高與離冊率呈單調遞減：從 &lt;5m 的 {fmtPct(first)} 降至 &gt;20m 的 {fmtPct(last)}。
+        胸徑則無此規律——最細與最粗的級距離冊率皆偏高，呈 <b>U 型</b>分布。
       </>
     );
   }
@@ -470,8 +470,8 @@ function DistrictInsight({
   const lo = sorted[sorted.length - 1];
   return (
     <>
-      各區冷熱不均：<b>{hi.dist}</b> 這一段消失率最高（{fmtPct(pickRate(hi, street))}），
-      <b>{lo.dist}</b> 最低（{fmtPct(pickRate(lo, street))}）。同一座城市、不同區的養護節奏差很多。
+      各區離冊率差異：<b>{hi.dist}</b> 離冊率最高（{fmtPct(pickRate(hi, street))}），
+      <b>{lo.dist}</b> 最低（{fmtPct(pickRate(lo, street))}）。各行政區之間的離冊率分布不均。
     </>
   );
 }
@@ -492,8 +492,8 @@ function ClusterInsight({
   if (seg === "2426") {
     return (
       <>
-        「整排一起從清冊消失」的熱點：<b>{top.road}</b>（{top.dist}）一段 <b>{fmtInt(top.size)} 棵</b>同時消失居冠，
-        多為{top.species_top}——正是本站以 Sentinel-2 衛星影像互證的案例（見下方方法論）。
+        同一路段集中離冊最多的地點：<b>{top.road}</b>（{top.dist}），共 <b>{fmtInt(top.size)} 棵</b>，
+        主要樹種為{top.species_top}。
       </>
     );
   }

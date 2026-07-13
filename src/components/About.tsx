@@ -100,21 +100,6 @@ export function About() {
         ))}
       </div>
 
-      {/* 衛星互證故事 */}
-      <div className="sat-story">
-        <div className="ss-tag">衛星互證 · 案例</div>
-        <h3 className="ss-h">松仁路的斷崖</h3>
-        <p className="ss-p">
-          2024→2026 之間，信義區松仁路一段 <b>304 棵</b>行道樹（多為黑板樹）從清冊集體消失，是本站規模最大的整排消失叢集。
-          為了不只倚賴清冊一面之詞，我們另外拉了同一路段 <b>16 季 Sentinel-2 衛星影像</b>的植被指數（NDVI）時序：
-          前 15 季維持穩定，<b>2026 年第二季驟降</b>，與清冊上消失的時點吻合。兩個彼此獨立的來源互相印證，
-          讓「這裡確實少了一整排樹」不再只是清冊上的一個數字。
-        </p>
-        <p className="ss-note">
-          註：衛星看的是地表綠覆變化，能佐證「整段綠量下降」，但仍無法證明每一棵個別樹木的最終去向。
-        </p>
-      </div>
-
       {/* 資料來源 */}
       <h3 className="about-subh">資料來源</h3>
       <div className="source-list">

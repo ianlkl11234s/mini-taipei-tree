@@ -5,7 +5,7 @@
 export function SiteFooter() {
   return (
     <footer className="site-footer">
-      <span>台北行道樹探索 · 民眾導向的單一主題資料視覺化</span>
+      <span>台北行道樹探索 · 公園處清冊三時點比對</span>
       <span className="spacer" />
       <a href="#explore">地圖探索</a>
       <a href="#stats">統計</a>

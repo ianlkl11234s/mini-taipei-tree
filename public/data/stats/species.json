@@ -1,0 +1,1820 @@
+{
+  "segments": {
+    "2224": [
+      {
+        "species": "榕樹",
+        "base": 11803,
+        "disappeared": 1062,
+        "appeared": 844,
+        "net": -218,
+        "removal_rate": 0.09,
+        "base_street": 10492,
+        "removal_rate_street": 0.0751
+      },
+      {
+        "species": "茄苳",
+        "base": 9602,
+        "disappeared": 352,
+        "appeared": 1059,
+        "net": 707,
+        "removal_rate": 0.0367,
+        "base_street": 8702,
+        "removal_rate_street": 0.0284
+      },
+      {
+        "species": "樟樹",
+        "base": 8295,
+        "disappeared": 343,
+        "appeared": 861,
+        "net": 518,
+        "removal_rate": 0.0414,
+        "base_street": 7303,
+        "removal_rate_street": 0.0404
+      },
+      {
+        "species": "楓香",
+        "base": 7226,
+        "disappeared": 226,
+        "appeared": 717,
+        "net": 491,
+        "removal_rate": 0.0313,
+        "base_street": 6392,
+        "removal_rate_street": 0.0261
+      },
+      {
+        "species": "臺灣欒樹",
+        "base": 6536,
+        "disappeared": 355,
+        "appeared": 724,
+        "net": 369,
+        "removal_rate": 0.0543,
+        "base_street": 5868,
+        "removal_rate_street": 0.0404
+      },
+      {
+        "species": "白千層",
+        "base": 4745,
+        "disappeared": 214,
+        "appeared": 255,
+        "net": 41,
+        "removal_rate": 0.0451,
+        "base_street": 4699,
+        "removal_rate_street": 0.0451
+      },
+      {
+        "species": "黑板樹",
+        "base": 4367,
+        "disappeared": 195,
+        "appeared": 111,
+        "net": -84,
+        "removal_rate": 0.0447,
+        "base_street": 3806,
+        "removal_rate_street": 0.0302
+      },
+      {
+        "species": "小葉欖仁",
+        "base": 2834,
+        "disappeared": 221,
+        "appeared": 292,
+        "net": 71,
+        "removal_rate": 0.078,
+        "base_street": 2036,
+        "removal_rate_street": 0.025
+      },
+      {
+        "species": "大花紫薇",
+        "base": 2343,
+        "disappeared": 291,
+        "appeared": 375,
+        "net": 84,
+        "removal_rate": 0.1242,
+        "base_street": 2078,
+        "removal_rate_street": 0.0472
+      },
+      {
+        "species": "水黃皮",
+        "base": 2165,
+        "disappeared": 115,
+        "appeared": 150,
+        "net": 35,
+        "removal_rate": 0.0531,
+        "base_street": 1565,
+        "removal_rate_street": 0.0236
+      },
+      {
+        "species": "木棉",
+        "base": 1820,
+        "disappeared": 343,
+        "appeared": 393,
+        "net": 50,
+        "removal_rate": 0.1885,
+        "base_street": 1517,
+        "removal_rate_street": 0.0877
+      },
+      {
+        "species": "大王椰子",
+        "base": 1811,
+        "disappeared": 54,
+        "appeared": 164,
+        "net": 110,
+        "removal_rate": 0.0298,
+        "base_street": 1718,
+        "removal_rate_street": 0.025
+      },
+      {
+        "species": "光蠟樹",
+        "base": 1587,
+        "disappeared": 71,
+        "appeared": 281,
+        "net": 210,
+        "removal_rate": 0.0447,
+        "base_street": 1417,
+        "removal_rate_street": 0.0226
+      },
+      {
+        "species": "菩提樹",
+        "base": 1550,
+        "disappeared": 79,
+        "appeared": 42,
+        "net": -37,
+        "removal_rate": 0.051,
+        "base_street": 1487,
+        "removal_rate_street": 0.0464
+      },
+      {
+        "species": "苦楝",
+        "base": 1389,
+        "disappeared": 50,
+        "appeared": 453,
+        "net": 403,
+        "removal_rate": 0.036,
+        "base_street": 1270,
+        "removal_rate_street": 0.0291
+      },
+      {
+        "species": "盾柱木",
+        "base": 1193,
+        "disappeared": 88,
+        "appeared": 48,
+        "net": -40,
+        "removal_rate": 0.0738,
+        "base_street": 1051,
+        "removal_rate_street": 0.078
+      },
+      {
+        "species": "山櫻花",
+        "base": 1073,
+        "disappeared": 272,
+        "appeared": 556,
+        "net": 284,
+        "removal_rate": 0.2535,
+        "base_street": 508,
+        "removal_rate_street": 0.1378
+      },
+      {
+        "species": "垂榕",
+        "base": 859,
+        "disappeared": 382,
+        "appeared": 64,
+        "net": -318,
+        "removal_rate": 0.4447,
+        "base_street": 422,
+        "removal_rate_street": 0.128
+      },
+      {
+        "species": "榔榆",
+        "base": 858,
+        "disappeared": 151,
+        "appeared": 110,
+        "net": -41,
+        "removal_rate": 0.176,
+        "base_street": 757,
+        "removal_rate_street": 0.1823
+      },
+      {
+        "species": "阿勃勒",
+        "base": 822,
+        "disappeared": 24,
+        "appeared": 73,
+        "net": 49,
+        "removal_rate": 0.0292,
+        "base_street": 612,
+        "removal_rate_street": 0.0245
+      },
+      {
+        "species": "烏桕",
+        "base": 818,
+        "disappeared": 29,
+        "appeared": 82,
+        "net": 53,
+        "removal_rate": 0.0355,
+        "base_street": 700,
+        "removal_rate_street": 0.0271
+      },
+      {
+        "species": "紫薇",
+        "base": 761,
+        "disappeared": 24,
+        "appeared": 316,
+        "net": 292,
+        "removal_rate": 0.0315,
+        "base_street": 691,
+        "removal_rate_street": 0.0232
+      },
+      {
+        "species": "蒲葵",
+        "base": 678,
+        "disappeared": 28,
+        "appeared": 132,
+        "net": 104,
+        "removal_rate": 0.0413,
+        "base_street": 559,
+        "removal_rate_street": 0.0197
+      },
+      {
+        "species": "檬果",
+        "base": 560,
+        "disappeared": 14,
+        "appeared": 1,
+        "net": -13,
+        "removal_rate": 0.025,
+        "base_street": 503,
+        "removal_rate_street": 0.0179
+      },
+      {
+        "species": "九芎",
+        "base": 519,
+        "disappeared": 9,
+        "appeared": 139,
+        "net": 130,
+        "removal_rate": 0.0173,
+        "base_street": 150,
+        "removal_rate_street": 0.0333
+      },
+      {
+        "species": "臺灣櫸",
+        "base": 467,
+        "disappeared": 20,
+        "appeared": 0,
+        "net": -20,
+        "removal_rate": 0.0428,
+        "base_street": 393,
+        "removal_rate_street": 0.0407
+      },
+      {
+        "species": "印度紫檀",
+        "base": 457,
+        "disappeared": 16,
+        "appeared": 27,
+        "net": 11,
+        "removal_rate": 0.035,
+        "base_street": 424,
+        "removal_rate_street": 0.0259
+      },
+      {
+        "species": "鐵刀木",
+        "base": 416,
+        "disappeared": 27,
+        "appeared": 31,
+        "net": 4,
+        "removal_rate": 0.0649,
+        "base_street": 414,
+        "removal_rate_street": 0.0652
+      },
+      {
+        "species": "黃連木",
+        "base": 413,
+        "disappeared": 13,
+        "appeared": 19,
+        "net": 6,
+        "removal_rate": 0.0315,
+        "base_street": 407,
+        "removal_rate_street": 0.0319
+      },
+      {
+        "species": "福木",
+        "base": 412,
+        "disappeared": 17,
+        "appeared": 69,
+        "net": 52,
+        "removal_rate": 0.0413,
+        "base_street": 96,
+        "removal_rate_street": 0.0
+      },
+      {
+        "species": "風鈴木",
+        "base": 395,
+        "disappeared": 35,
+        "appeared": 85,
+        "net": 50,
+        "removal_rate": 0.0886,
+        "base_street": 317,
+        "removal_rate_street": 0.1041
+      },
+      {
+        "species": "羅漢松",
+        "base": 378,
+        "disappeared": 158,
+        "appeared": 245,
+        "net": 87,
+        "removal_rate": 0.418,
+        "base_street": 179,
+        "removal_rate_street": 0.4469
+      },
+      {
+        "species": "美人樹",
+        "base": 377,
+        "disappeared": 17,
+        "appeared": 68,
+        "net": 51,
+        "removal_rate": 0.0451,
+        "base_street": 295,
+        "removal_rate_street": 0.0475
+      },
+      {
+        "species": "羅比親王海棗",
+        "base": 349,
+        "disappeared": 9,
+        "appeared": 30,
+        "net": 21,
+        "removal_rate": 0.0258,
+        "base_street": 267,
+        "removal_rate_street": 0.0262
+      },
+      {
+        "species": "橡皮樹",
+        "base": 339,
+        "disappeared": 33,
+        "appeared": 0,
+        "net": -33,
+        "removal_rate": 0.0973,
+        "base_street": 324,
+        "removal_rate_street": 0.1019
+      },
+      {
+        "species": "火燄木",
+        "base": 325,
+        "disappeared": 38,
+        "appeared": 0,
+        "net": -38,
+        "removal_rate": 0.1169,
+        "base_street": 281,
+        "removal_rate_street": 0.1281
+      },
+      {
+        "species": "豔紫荊",
+        "base": 315,
+        "disappeared": 29,
+        "appeared": 45,
+        "net": 16,
+        "removal_rate": 0.0921,
+        "base_street": 234,
+        "removal_rate_street": 0.0726
+      },
+      {
+        "species": "黃脈刺桐",
+        "base": 313,
+        "disappeared": 11,
+        "appeared": 32,
+        "net": 21,
+        "removal_rate": 0.0351,
+        "base_street": 63,
+        "removal_rate_street": 0.0635
+      },
+      {
+        "species": "欖仁",
+        "base": 293,
+        "disappeared": 9,
+        "appeared": 0,
+        "net": -9,
+        "removal_rate": 0.0307,
+        "base_street": 99,
+        "removal_rate_street": 0.0606
+      },
+      {
+        "species": "富士櫻",
+        "base": 253,
+        "disappeared": 7,
+        "appeared": 124,
+        "net": 117,
+        "removal_rate": 0.0277,
+        "base_street": 2,
+        "removal_rate_street": 0.0
+      },
+      {
+        "species": "烏心石",
+        "base": 253,
+        "disappeared": 36,
+        "appeared": 58,
+        "net": 22,
+        "removal_rate": 0.1423,
+        "base_street": 173,
+        "removal_rate_street": 0.0983
+      },
+      {
+        "species": "鳳凰木",
+        "base": 250,
+        "disappeared": 14,
+        "appeared": 23,
+        "net": 9,
+        "removal_rate": 0.056,
+        "base_street": 170,
+        "removal_rate_street": 0.0765
+      },
+      {
+        "species": "杜英",
+        "base": 239,
+        "disappeared": 23,
+        "appeared": 93,
+        "net": 70,
+        "removal_rate": 0.0962,
+        "base_street": 206,
+        "removal_rate_street": 0.068
+      },
+      {
+        "species": "刺桐",
+        "base": 234,
+        "disappeared": 24,
+        "appeared": 6,
+        "net": -18,
+        "removal_rate": 0.1026,
+        "base_street": 218,
+        "removal_rate_street": 0.1009
+      },
+      {
+        "species": "猢猻木",
+        "base": 224,
+        "disappeared": 9,
+        "appeared": 11,
+        "net": 2,
+        "removal_rate": 0.0402,
+        "base_street": 128,
+        "removal_rate_street": 0.0625
+      },
+      {
+        "species": "桃花心木",
+        "base": 220,
+        "disappeared": 2,
+        "appeared": 11,
+        "net": 9,
+        "removal_rate": 0.0091,
+        "base_street": 215,
+        "removal_rate_street": 0.0093
+      },
+      {
+        "species": "大葉山欖",
+        "base": 213,
+        "disappeared": 20,
+        "appeared": 33,
+        "net": 13,
+        "removal_rate": 0.0939,
+        "base_street": 138,
+        "removal_rate_street": 0.0362
+      },
+      {
+        "species": "落羽松",
+        "base": 210,
+        "disappeared": 86,
+        "appeared": 0,
+        "net": -86,
+        "removal_rate": 0.4095,
+        "base_street": 28,
+        "removal_rate_street": 0.0357
+      },
+      {
+        "species": "鐵冬青",
+        "base": 201,
+        "disappeared": 6,
+        "appeared": 29,
+        "net": 23,
+        "removal_rate": 0.0299,
+        "base_street": 201,
+        "removal_rate_street": 0.0299
+      },
+      {
+        "species": "青楓",
+        "base": 190,
+        "disappeared": 17,
+        "appeared": 116,
+        "net": 99,
+        "removal_rate": 0.0895,
+        "base_street": 176,
+        "removal_rate_street": 0.0966
+      },
+      {
+        "species": "無患子",
+        "base": 179,
+        "disappeared": 6,
+        "appeared": 23,
+        "net": 17,
+        "removal_rate": 0.0335,
+        "base_street": 176,
+        "removal_rate_street": 0.0341
+      },
+      {
+        "species": "黃椰子",
+        "base": 161,
+        "disappeared": 71,
+        "appeared": 217,
+        "net": 146,
+        "removal_rate": 0.441,
+        "base_street": 45,
+        "removal_rate_street": 0.5111
+      },
+      {
+        "species": "大葉楠",
+        "base": 160,
+        "disappeared": 70,
+        "appeared": 3,
+        "net": -67,
+        "removal_rate": 0.4375,
+        "base_street": 157,
+        "removal_rate_street": 0.4459
+      },
+      {
+        "species": "馬拉巴栗",
+        "base": 148,
+        "disappeared": 10,
+        "appeared": 58,
+        "net": 48,
+        "removal_rate": 0.0676,
+        "base_street": 88,
+        "removal_rate_street": 0.0
+      },
+      {
+        "species": "龍柏",
+        "base": 147,
+        "disappeared": 5,
+        "appeared": 67,
+        "net": 62,
+        "removal_rate": 0.034,
+        "base_street": 82,
+        "removal_rate_street": 0.0
+      },
+      {
+        "species": "洋紅風鈴木",
+        "base": 124,
+        "disappeared": 4,
+        "appeared": 137,
+        "net": 133,
+        "removal_rate": 0.0323,
+        "base_street": 106,
+        "removal_rate_street": 0.0283
+      },
+      {
+        "species": "羊蹄甲",
+        "base": 121,
+        "disappeared": 22,
+        "appeared": 12,
+        "net": -10,
+        "removal_rate": 0.1818,
+        "base_street": 41,
+        "removal_rate_street": 0.0976
+      },
+      {
+        "species": "流蘇",
+        "base": 119,
+        "disappeared": 9,
+        "appeared": 95,
+        "net": 86,
+        "removal_rate": 0.0756,
+        "base_street": 67,
+        "removal_rate_street": 0.1045
+      },
+      {
+        "species": "雀榕",
+        "base": 103,
+        "disappeared": 22,
+        "appeared": 42,
+        "net": 20,
+        "removal_rate": 0.2136,
+        "base_street": 58,
+        "removal_rate_street": 0.1379
+      },
+      {
+        "species": "大葉桉",
+        "base": 102,
+        "disappeared": 14,
+        "appeared": 31,
+        "net": 17,
+        "removal_rate": 0.1373,
+        "base_street": 91,
+        "removal_rate_street": 0.1319
+      },
+      {
+        "species": "錫蘭橄欖",
+        "base": 99,
+        "disappeared": 3,
+        "appeared": 7,
+        "net": 4,
+        "removal_rate": 0.0303,
+        "base_street": 97,
+        "removal_rate_street": 0.0309
+      },
+      {
+        "species": "青剛櫟",
+        "base": 96,
+        "disappeared": 7,
+        "appeared": 9,
+        "net": 2,
+        "removal_rate": 0.0729,
+        "base_street": 82,
+        "removal_rate_street": 0.0122
+      },
+      {
+        "species": "陰香",
+        "base": 91,
+        "disappeared": 4,
+        "appeared": 29,
+        "net": 25,
+        "removal_rate": 0.044,
+        "base_street": 87,
+        "removal_rate_street": 0.046
+      },
+      {
+        "species": "緬梔",
+        "base": 90,
+        "disappeared": 5,
+        "appeared": 46,
+        "net": 41,
+        "removal_rate": 0.0556,
+        "base_street": 42,
+        "removal_rate_street": 0.0238
+      },
+      {
+        "species": "構樹",
+        "base": 88,
+        "disappeared": 11,
+        "appeared": 139,
+        "net": 128,
+        "removal_rate": 0.125,
+        "base_street": 47,
+        "removal_rate_street": 0.1064
+      },
+      {
+        "species": "玉蘭",
+        "base": 80,
+        "disappeared": 4,
+        "appeared": 0,
+        "net": -4,
+        "removal_rate": 0.05,
+        "base_street": 67,
+        "removal_rate_street": 0.0597
+      },
+      {
+        "species": "木麻黃",
+        "base": 79,
+        "disappeared": 39,
+        "appeared": 31,
+        "net": -8,
+        "removal_rate": 0.4937,
+        "base_street": 43,
+        "removal_rate_street": 0.1395
+      },
+      {
+        "species": "蓮霧",
+        "base": 71,
+        "disappeared": 7,
+        "appeared": 33,
+        "net": 26,
+        "removal_rate": 0.0986,
+        "base_street": 27,
+        "removal_rate_street": 0.1852
+      },
+      {
+        "species": "蠟腸樹",
+        "base": 71,
+        "disappeared": 3,
+        "appeared": 1,
+        "net": -2,
+        "removal_rate": 0.0423,
+        "base_street": 63,
+        "removal_rate_street": 0.0476
+      },
+      {
+        "species": "龍眼樹",
+        "base": 70,
+        "disappeared": 8,
+        "appeared": 0,
+        "net": -8,
+        "removal_rate": 0.1143,
+        "base_street": 43,
+        "removal_rate_street": 0.1628
+      },
+      {
+        "species": "第倫桃",
+        "base": 70,
+        "disappeared": 1,
+        "appeared": 0,
+        "net": -1,
+        "removal_rate": 0.0143,
+        "base_street": 67,
+        "removal_rate_street": 0.0149
+      },
+      {
+        "species": "朴樹",
+        "base": 66,
+        "disappeared": 5,
+        "appeared": 39,
+        "net": 34,
+        "removal_rate": 0.0758,
+        "base_street": 46,
+        "removal_rate_street": 0.0217
+      },
+      {
+        "species": "洋玉蘭",
+        "base": 64,
+        "disappeared": 14,
+        "appeared": 17,
+        "net": 3,
+        "removal_rate": 0.2188,
+        "base_street": 58,
+        "removal_rate_street": 0.2414
+      },
+      {
+        "species": "黃花風鈴木",
+        "base": 63,
+        "disappeared": 0,
+        "appeared": 2,
+        "net": 2,
+        "removal_rate": 0.0,
+        "base_street": 57,
+        "removal_rate_street": 0.0
+      },
+      {
+        "species": "臺灣海棗",
+        "base": 57,
+        "disappeared": 0,
+        "appeared": 6,
+        "net": 6,
+        "removal_rate": 0.0,
+        "base_street": 53,
+        "removal_rate_street": 0.0
+      },
+      {
+        "species": "華盛頓椰子",
+        "base": 55,
+        "disappeared": 4,
+        "appeared": 0,
+        "net": -4,
+        "removal_rate": 0.0727,
+        "base_street": 54,
+        "removal_rate_street": 0.0741
+      },
+      {
+        "species": "大葉桃花心木",
+        "base": 52,
+        "disappeared": 0,
+        "appeared": 39,
+        "net": 39,
+        "removal_rate": 0.0,
+        "base_street": 50,
+        "removal_rate_street": 0.0
+      },
+      {
+        "species": "小葉南洋杉",
+        "base": 52,
+        "disappeared": 2,
+        "appeared": 20,
+        "net": 18,
+        "removal_rate": 0.0385,
+        "base_street": 20,
+        "removal_rate_street": 0.05
+      },
+      {
+        "species": "桑樹",
+        "base": 50,
+        "disappeared": 11,
+        "appeared": 71,
+        "net": 60,
+        "removal_rate": 0.22,
+        "base_street": 29,
+        "removal_rate_street": 0.069
+      },
+      {
+        "species": "其他",
+        "base": 1397,
+        "disappeared": 160,
+        "appeared": 3041,
+        "net": 2881,
+        "removal_rate": 0.1145,
+        "base_street": 777,
+        "removal_rate_street": 0.1004
+      }
+    ],
+    "2426": [
+      {
+        "species": "榕樹",
+        "base": 11546,
+        "disappeared": 958,
+        "appeared": 195,
+        "net": -763,
+        "removal_rate": 0.083,
+        "base_street": 10552,
+        "removal_rate_street": 0.087
+      },
+      {
+        "species": "茄苳",
+        "base": 10349,
+        "disappeared": 409,
+        "appeared": 328,
+        "net": -81,
+        "removal_rate": 0.0395,
+        "base_street": 9790,
+        "removal_rate_street": 0.0398
+      },
+      {
+        "species": "樟樹",
+        "base": 8786,
+        "disappeared": 635,
+        "appeared": 453,
+        "net": -182,
+        "removal_rate": 0.0723,
+        "base_street": 8047,
+        "removal_rate_street": 0.0729
+      },
+      {
+        "species": "楓香",
+        "base": 7702,
+        "disappeared": 365,
+        "appeared": 377,
+        "net": 12,
+        "removal_rate": 0.0474,
+        "base_street": 7039,
+        "removal_rate_street": 0.0499
+      },
+      {
+        "species": "臺灣欒樹",
+        "base": 6902,
+        "disappeared": 535,
+        "appeared": 136,
+        "net": -399,
+        "removal_rate": 0.0775,
+        "base_street": 6422,
+        "removal_rate_street": 0.081
+      },
+      {
+        "species": "白千層",
+        "base": 4786,
+        "disappeared": 291,
+        "appeared": 64,
+        "net": -227,
+        "removal_rate": 0.0608,
+        "base_street": 4710,
+        "removal_rate_street": 0.0607
+      },
+      {
+        "species": "黑板樹",
+        "base": 4273,
+        "disappeared": 292,
+        "appeared": 41,
+        "net": -251,
+        "removal_rate": 0.0683,
+        "base_street": 3938,
+        "removal_rate_street": 0.0726
+      },
+      {
+        "species": "小葉欖仁",
+        "base": 2900,
+        "disappeared": 135,
+        "appeared": 54,
+        "net": -81,
+        "removal_rate": 0.0466,
+        "base_street": 2368,
+        "removal_rate_street": 0.049
+      },
+      {
+        "species": "大花紫薇",
+        "base": 2424,
+        "disappeared": 213,
+        "appeared": 96,
+        "net": -117,
+        "removal_rate": 0.0879,
+        "base_street": 2208,
+        "removal_rate_street": 0.0951
+      },
+      {
+        "species": "水黃皮",
+        "base": 2208,
+        "disappeared": 204,
+        "appeared": 16,
+        "net": -188,
+        "removal_rate": 0.0924,
+        "base_street": 1979,
+        "removal_rate_street": 0.0995
+      },
+      {
+        "species": "大王椰子",
+        "base": 1917,
+        "disappeared": 129,
+        "appeared": 11,
+        "net": -118,
+        "removal_rate": 0.0673,
+        "base_street": 1879,
+        "removal_rate_street": 0.0681
+      },
+      {
+        "species": "木棉",
+        "base": 1857,
+        "disappeared": 84,
+        "appeared": 10,
+        "net": -74,
+        "removal_rate": 0.0452,
+        "base_street": 1555,
+        "removal_rate_street": 0.0527
+      },
+      {
+        "species": "光蠟樹",
+        "base": 1834,
+        "disappeared": 118,
+        "appeared": 92,
+        "net": -26,
+        "removal_rate": 0.0643,
+        "base_street": 1581,
+        "removal_rate_street": 0.0639
+      },
+      {
+        "species": "苦楝",
+        "base": 1806,
+        "disappeared": 117,
+        "appeared": 136,
+        "net": 19,
+        "removal_rate": 0.0648,
+        "base_street": 1641,
+        "removal_rate_street": 0.0658
+      },
+      {
+        "species": "菩提樹",
+        "base": 1510,
+        "disappeared": 112,
+        "appeared": 7,
+        "net": -105,
+        "removal_rate": 0.0742,
+        "base_street": 1446,
+        "removal_rate_street": 0.0747
+      },
+      {
+        "species": "山櫻花",
+        "base": 1350,
+        "disappeared": 273,
+        "appeared": 213,
+        "net": -60,
+        "removal_rate": 0.2022,
+        "base_street": 775,
+        "removal_rate_street": 0.2774
+      },
+      {
+        "species": "盾柱木",
+        "base": 1152,
+        "disappeared": 203,
+        "appeared": 7,
+        "net": -196,
+        "removal_rate": 0.1762,
+        "base_street": 1007,
+        "removal_rate_street": 0.1897
+      },
+      {
+        "species": "紫薇",
+        "base": 1027,
+        "disappeared": 160,
+        "appeared": 144,
+        "net": -16,
+        "removal_rate": 0.1558,
+        "base_street": 945,
+        "removal_rate_street": 0.1619
+      },
+      {
+        "species": "烏桕",
+        "base": 871,
+        "disappeared": 55,
+        "appeared": 76,
+        "net": 21,
+        "removal_rate": 0.0631,
+        "base_street": 769,
+        "removal_rate_street": 0.0663
+      },
+      {
+        "species": "阿勃勒",
+        "base": 869,
+        "disappeared": 34,
+        "appeared": 2,
+        "net": -32,
+        "removal_rate": 0.0391,
+        "base_street": 705,
+        "removal_rate_street": 0.0426
+      },
+      {
+        "species": "榔榆",
+        "base": 820,
+        "disappeared": 150,
+        "appeared": 7,
+        "net": -143,
+        "removal_rate": 0.1829,
+        "base_street": 709,
+        "removal_rate_street": 0.1989
+      },
+      {
+        "species": "蒲葵",
+        "base": 778,
+        "disappeared": 43,
+        "appeared": 6,
+        "net": -37,
+        "removal_rate": 0.0553,
+        "base_street": 707,
+        "removal_rate_street": 0.0594
+      },
+      {
+        "species": "櫸",
+        "base": 735,
+        "disappeared": 259,
+        "appeared": 168,
+        "net": -91,
+        "removal_rate": 0.3524,
+        "base_street": 647,
+        "removal_rate_street": 0.391
+      },
+      {
+        "species": "九芎",
+        "base": 688,
+        "disappeared": 21,
+        "appeared": 22,
+        "net": 1,
+        "removal_rate": 0.0305,
+        "base_street": 208,
+        "removal_rate_street": 0.0721
+      },
+      {
+        "species": "芒果",
+        "base": 683,
+        "disappeared": 58,
+        "appeared": 27,
+        "net": -31,
+        "removal_rate": 0.0849,
+        "base_street": 616,
+        "removal_rate_street": 0.0844
+      },
+      {
+        "species": "垂榕",
+        "base": 516,
+        "disappeared": 65,
+        "appeared": 8,
+        "net": -57,
+        "removal_rate": 0.126,
+        "base_street": 453,
+        "removal_rate_street": 0.117
+      },
+      {
+        "species": "印度紫檀",
+        "base": 469,
+        "disappeared": 46,
+        "appeared": 8,
+        "net": -38,
+        "removal_rate": 0.0981,
+        "base_street": 463,
+        "removal_rate_street": 0.0972
+      },
+      {
+        "species": "福木",
+        "base": 465,
+        "disappeared": 2,
+        "appeared": 22,
+        "net": 20,
+        "removal_rate": 0.0043,
+        "base_street": 272,
+        "removal_rate_street": 0.0074
+      },
+      {
+        "species": "美人樹",
+        "base": 431,
+        "disappeared": 78,
+        "appeared": 3,
+        "net": -75,
+        "removal_rate": 0.181,
+        "base_street": 351,
+        "removal_rate_street": 0.208
+      },
+      {
+        "species": "蘭嶼羅漢松",
+        "base": 426,
+        "disappeared": 4,
+        "appeared": 12,
+        "net": 8,
+        "removal_rate": 0.0094,
+        "base_street": 425,
+        "removal_rate_street": 0.0094
+      },
+      {
+        "species": "羅漢松",
+        "base": 419,
+        "disappeared": 33,
+        "appeared": 9,
+        "net": -24,
+        "removal_rate": 0.0788,
+        "base_street": 273,
+        "removal_rate_street": 0.0513
+      },
+      {
+        "species": "黃連木",
+        "base": 413,
+        "disappeared": 10,
+        "appeared": 53,
+        "net": 43,
+        "removal_rate": 0.0242,
+        "base_street": 407,
+        "removal_rate_street": 0.0246
+      },
+      {
+        "species": "黃脈刺桐",
+        "base": 411,
+        "disappeared": 38,
+        "appeared": 0,
+        "net": -38,
+        "removal_rate": 0.0925,
+        "base_street": 157,
+        "removal_rate_street": 0.0892
+      },
+      {
+        "species": "鐵刀木",
+        "base": 373,
+        "disappeared": 103,
+        "appeared": 0,
+        "net": -103,
+        "removal_rate": 0.2761,
+        "base_street": 371,
+        "removal_rate_street": 0.2722
+      },
+      {
+        "species": "富士櫻",
+        "base": 369,
+        "disappeared": 16,
+        "appeared": 6,
+        "net": -10,
+        "removal_rate": 0.0434,
+        "base_street": 2,
+        "removal_rate_street": 0.0
+      },
+      {
+        "species": "羅比親王海棗",
+        "base": 350,
+        "disappeared": 18,
+        "appeared": 10,
+        "net": -8,
+        "removal_rate": 0.0514,
+        "base_street": 266,
+        "removal_rate_street": 0.0639
+      },
+      {
+        "species": "火焰木",
+        "base": 338,
+        "disappeared": 58,
+        "appeared": 0,
+        "net": -58,
+        "removal_rate": 0.1716,
+        "base_street": 289,
+        "removal_rate_street": 0.1903
+      },
+      {
+        "species": "欖仁樹",
+        "base": 333,
+        "disappeared": 15,
+        "appeared": 16,
+        "net": 1,
+        "removal_rate": 0.045,
+        "base_street": 153,
+        "removal_rate_street": 0.0588
+      },
+      {
+        "species": "印度橡膠樹",
+        "base": 324,
+        "disappeared": 16,
+        "appeared": 3,
+        "net": -13,
+        "removal_rate": 0.0494,
+        "base_street": 306,
+        "removal_rate_street": 0.0523
+      },
+      {
+        "species": "洋紅風鈴木",
+        "base": 320,
+        "disappeared": 44,
+        "appeared": 137,
+        "net": 93,
+        "removal_rate": 0.1375,
+        "base_street": 253,
+        "removal_rate_street": 0.1423
+      },
+      {
+        "species": "風鈴木",
+        "base": 320,
+        "disappeared": 41,
+        "appeared": 10,
+        "net": -31,
+        "removal_rate": 0.1281,
+        "base_street": 257,
+        "removal_rate_street": 0.1245
+      },
+      {
+        "species": "豔紫荊",
+        "base": 318,
+        "disappeared": 59,
+        "appeared": 13,
+        "net": -46,
+        "removal_rate": 0.1855,
+        "base_street": 280,
+        "removal_rate_street": 0.1679
+      },
+      {
+        "species": "杜英",
+        "base": 313,
+        "disappeared": 30,
+        "appeared": 5,
+        "net": -25,
+        "removal_rate": 0.0958,
+        "base_street": 273,
+        "removal_rate_street": 0.1026
+      },
+      {
+        "species": "黃椰子",
+        "base": 308,
+        "disappeared": 21,
+        "appeared": 3,
+        "net": -18,
+        "removal_rate": 0.0682,
+        "base_street": 221,
+        "removal_rate_street": 0.095
+      },
+      {
+        "species": "青楓",
+        "base": 306,
+        "disappeared": 51,
+        "appeared": 27,
+        "net": -24,
+        "removal_rate": 0.1667,
+        "base_street": 274,
+        "removal_rate_street": 0.1496
+      },
+      {
+        "species": "肯氏蒲桃",
+        "base": 296,
+        "disappeared": 5,
+        "appeared": 2,
+        "net": -3,
+        "removal_rate": 0.0169,
+        "base_street": 271,
+        "removal_rate_street": 0.0148
+      },
+      {
+        "species": "鳳凰木",
+        "base": 254,
+        "disappeared": 26,
+        "appeared": 6,
+        "net": -20,
+        "removal_rate": 0.1024,
+        "base_street": 228,
+        "removal_rate_street": 0.0877
+      },
+      {
+        "species": "桃花心木",
+        "base": 232,
+        "disappeared": 25,
+        "appeared": 2,
+        "net": -23,
+        "removal_rate": 0.1078,
+        "base_street": 231,
+        "removal_rate_street": 0.1082
+      },
+      {
+        "species": "鐵冬青",
+        "base": 228,
+        "disappeared": 3,
+        "appeared": 0,
+        "net": -3,
+        "removal_rate": 0.0132,
+        "base_street": 228,
+        "removal_rate_street": 0.0132
+      },
+      {
+        "species": "猢猻木",
+        "base": 225,
+        "disappeared": 1,
+        "appeared": 0,
+        "net": -1,
+        "removal_rate": 0.0044,
+        "base_street": 129,
+        "removal_rate_street": 0.0078
+      },
+      {
+        "species": "血桐",
+        "base": 225,
+        "disappeared": 13,
+        "appeared": 10,
+        "net": -3,
+        "removal_rate": 0.0578,
+        "base_street": 182,
+        "removal_rate_street": 0.0659
+      },
+      {
+        "species": "大葉山欖",
+        "base": 220,
+        "disappeared": 6,
+        "appeared": 10,
+        "net": 4,
+        "removal_rate": 0.0273,
+        "base_street": 189,
+        "removal_rate_street": 0.0317
+      },
+      {
+        "species": "構樹",
+        "base": 210,
+        "disappeared": 25,
+        "appeared": 10,
+        "net": -15,
+        "removal_rate": 0.119,
+        "base_street": 165,
+        "removal_rate_street": 0.1212
+      },
+      {
+        "species": "流蘇",
+        "base": 210,
+        "disappeared": 24,
+        "appeared": 31,
+        "net": 7,
+        "removal_rate": 0.1143,
+        "base_street": 172,
+        "removal_rate_street": 0.1279
+      },
+      {
+        "species": "龍柏",
+        "base": 207,
+        "disappeared": 5,
+        "appeared": 10,
+        "net": 5,
+        "removal_rate": 0.0242,
+        "base_street": 109,
+        "removal_rate_street": 0.0367
+      },
+      {
+        "species": "無患子",
+        "base": 197,
+        "disappeared": 19,
+        "appeared": 5,
+        "net": -14,
+        "removal_rate": 0.0964,
+        "base_street": 195,
+        "removal_rate_street": 0.0974
+      },
+      {
+        "species": "馬拉巴栗",
+        "base": 195,
+        "disappeared": 23,
+        "appeared": 4,
+        "net": -19,
+        "removal_rate": 0.1179,
+        "base_street": 142,
+        "removal_rate_street": 0.162
+      },
+      {
+        "species": "烏心石",
+        "base": 191,
+        "disappeared": 39,
+        "appeared": 28,
+        "net": -11,
+        "removal_rate": 0.2042,
+        "base_street": 129,
+        "removal_rate_street": 0.2713
+      },
+      {
+        "species": "落羽杉",
+        "base": 188,
+        "disappeared": 14,
+        "appeared": 45,
+        "net": 31,
+        "removal_rate": 0.0745,
+        "base_street": 53,
+        "removal_rate_street": 0.2642
+      },
+      {
+        "species": "黃金風鈴木",
+        "base": 166,
+        "disappeared": 7,
+        "appeared": 2,
+        "net": -5,
+        "removal_rate": 0.0422,
+        "base_street": 144,
+        "removal_rate_street": 0.0417
+      },
+      {
+        "species": "蘭嶼烏心石",
+        "base": 143,
+        "disappeared": 17,
+        "appeared": 26,
+        "net": 9,
+        "removal_rate": 0.1189,
+        "base_street": 142,
+        "removal_rate_street": 0.1197
+      },
+      {
+        "species": "刺桐",
+        "base": 139,
+        "disappeared": 13,
+        "appeared": 13,
+        "net": 0,
+        "removal_rate": 0.0935,
+        "base_street": 123,
+        "removal_rate_street": 0.0569
+      },
+      {
+        "species": "龍眼",
+        "base": 138,
+        "disappeared": 27,
+        "appeared": 28,
+        "net": 1,
+        "removal_rate": 0.1957,
+        "base_street": 113,
+        "removal_rate_street": 0.2124
+      },
+      {
+        "species": "亞力山大椰子",
+        "base": 138,
+        "disappeared": 99,
+        "appeared": 10,
+        "net": -89,
+        "removal_rate": 0.7174,
+        "base_street": 129,
+        "removal_rate_street": 0.7519
+      },
+      {
+        "species": "雀榕",
+        "base": 126,
+        "disappeared": 15,
+        "appeared": 26,
+        "net": 11,
+        "removal_rate": 0.119,
+        "base_street": 90,
+        "removal_rate_street": 0.1222
+      },
+      {
+        "species": "陰香",
+        "base": 117,
+        "disappeared": 19,
+        "appeared": 4,
+        "net": -15,
+        "removal_rate": 0.1624,
+        "base_street": 112,
+        "removal_rate_street": 0.1696
+      },
+      {
+        "species": "白玉蘭",
+        "base": 116,
+        "disappeared": 23,
+        "appeared": 9,
+        "net": -14,
+        "removal_rate": 0.1983,
+        "base_street": 102,
+        "removal_rate_street": 0.1373
+      },
+      {
+        "species": "大葉桉",
+        "base": 116,
+        "disappeared": 26,
+        "appeared": 22,
+        "net": -4,
+        "removal_rate": 0.2241,
+        "base_street": 108,
+        "removal_rate_street": 0.2315
+      },
+      {
+        "species": "桑樹",
+        "base": 111,
+        "disappeared": 24,
+        "appeared": 26,
+        "net": 2,
+        "removal_rate": 0.2162,
+        "base_street": 85,
+        "removal_rate_street": 0.2471
+      },
+      {
+        "species": "錫蘭橄欖",
+        "base": 103,
+        "disappeared": 15,
+        "appeared": 0,
+        "net": -15,
+        "removal_rate": 0.1456,
+        "base_street": 98,
+        "removal_rate_street": 0.1531
+      },
+      {
+        "species": "羊蹄甲",
+        "base": 99,
+        "disappeared": 26,
+        "appeared": 2,
+        "net": -24,
+        "removal_rate": 0.2626,
+        "base_street": 39,
+        "removal_rate_street": 0.2564
+      },
+      {
+        "species": "青剛櫟",
+        "base": 99,
+        "disappeared": 8,
+        "appeared": 6,
+        "net": -2,
+        "removal_rate": 0.0808,
+        "base_street": 90,
+        "removal_rate_street": 0.0889
+      },
+      {
+        "species": "蓮霧",
+        "base": 98,
+        "disappeared": 7,
+        "appeared": 2,
+        "net": -5,
+        "removal_rate": 0.0714,
+        "base_street": 78,
+        "removal_rate_street": 0.0897
+      },
+      {
+        "species": "大葉桃花心木",
+        "base": 94,
+        "disappeared": 6,
+        "appeared": 2,
+        "net": -4,
+        "removal_rate": 0.0638,
+        "base_street": 92,
+        "removal_rate_street": 0.0652
+      },
+      {
+        "species": "大葉楠",
+        "base": 90,
+        "disappeared": 10,
+        "appeared": 0,
+        "net": -10,
+        "removal_rate": 0.1111,
+        "base_street": 90,
+        "removal_rate_street": 0.1111
+      },
+      {
+        "species": "梅",
+        "base": 86,
+        "disappeared": 2,
+        "appeared": 11,
+        "net": 9,
+        "removal_rate": 0.0233,
+        "base_street": 38,
+        "removal_rate_street": 0.0
+      },
+      {
+        "species": "朴樹",
+        "base": 85,
+        "disappeared": 2,
+        "appeared": 1,
+        "net": -1,
+        "removal_rate": 0.0235,
+        "base_street": 54,
+        "removal_rate_street": 0.037
+      },
+      {
+        "species": "海桐",
+        "base": 79,
+        "disappeared": 0,
+        "appeared": 2,
+        "net": 2,
+        "removal_rate": 0.0,
+        "base_street": 79,
+        "removal_rate_street": 0.0
+      },
+      {
+        "species": "緬梔",
+        "base": 78,
+        "disappeared": 3,
+        "appeared": 0,
+        "net": -3,
+        "removal_rate": 0.0385,
+        "base_street": 20,
+        "removal_rate_street": 0.15
+      },
+      {
+        "species": "木麻黃",
+        "base": 78,
+        "disappeared": 6,
+        "appeared": 1,
+        "net": -5,
+        "removal_rate": 0.0769,
+        "base_street": 49,
+        "removal_rate_street": 0.102
+      },
+      {
+        "species": "蠟腸樹",
+        "base": 78,
+        "disappeared": 1,
+        "appeared": 0,
+        "net": -1,
+        "removal_rate": 0.0128,
+        "base_street": 78,
+        "removal_rate_street": 0.0128
+      },
+      {
+        "species": "溼地松",
+        "base": 73,
+        "disappeared": 8,
+        "appeared": 1,
+        "net": -7,
+        "removal_rate": 0.1096,
+        "base_street": 63,
+        "removal_rate_street": 0.127
+      },
+      {
+        "species": "小葉南洋杉",
+        "base": 70,
+        "disappeared": 7,
+        "appeared": 6,
+        "net": -1,
+        "removal_rate": 0.1,
+        "base_street": 49,
+        "removal_rate_street": 0.102
+      },
+      {
+        "species": "洋紫荊",
+        "base": 70,
+        "disappeared": 12,
+        "appeared": 0,
+        "net": -12,
+        "removal_rate": 0.1714,
+        "base_street": 43,
+        "removal_rate_street": 0.1628
+      },
+      {
+        "species": "第倫桃",
+        "base": 69,
+        "disappeared": 1,
+        "appeared": 2,
+        "net": 1,
+        "removal_rate": 0.0145,
+        "base_street": 69,
+        "removal_rate_street": 0.0145
+      },
+      {
+        "species": "緬梔花",
+        "base": 69,
+        "disappeared": 4,
+        "appeared": 9,
+        "net": 5,
+        "removal_rate": 0.058,
+        "base_street": 69,
+        "removal_rate_street": 0.058
+      },
+      {
+        "species": "土肉桂",
+        "base": 66,
+        "disappeared": 9,
+        "appeared": 0,
+        "net": -9,
+        "removal_rate": 0.1364,
+        "base_street": 51,
+        "removal_rate_street": 0.0
+      },
+      {
+        "species": "洋玉蘭",
+        "base": 66,
+        "disappeared": 12,
+        "appeared": 8,
+        "net": -4,
+        "removal_rate": 0.1818,
+        "base_street": 57,
+        "removal_rate_street": 0.2105
+      },
+      {
+        "species": "柚子",
+        "base": 64,
+        "disappeared": 6,
+        "appeared": 9,
+        "net": 3,
+        "removal_rate": 0.0938,
+        "base_street": 47,
+        "removal_rate_street": 0.1277
+      },
+      {
+        "species": "臺灣海棗",
+        "base": 59,
+        "disappeared": 1,
+        "appeared": 0,
+        "net": -1,
+        "removal_rate": 0.0169,
+        "base_street": 55,
+        "removal_rate_street": 0.0182
+      },
+      {
+        "species": "紅花鐵刀木",
+        "base": 57,
+        "disappeared": 1,
+        "appeared": 0,
+        "net": -1,
+        "removal_rate": 0.0175,
+        "base_street": 57,
+        "removal_rate_street": 0.0175
+      },
+      {
+        "species": "竹柏",
+        "base": 50,
+        "disappeared": 6,
+        "appeared": 0,
+        "net": -6,
+        "removal_rate": 0.12,
+        "base_street": 35,
+        "removal_rate_street": 0.0857
+      },
+      {
+        "species": "其他",
+        "base": 2035,
+        "disappeared": 242,
+        "appeared": 605,
+        "net": 363,
+        "removal_rate": 0.1189,
+        "base_street": 1652,
+        "removal_rate_street": 0.1283
+      }
+    ]
+  },
+  "epoch_top20": [
+    {
+      "species": "榕樹",
+      "count_2026": 10784
+    },
+    {
+      "species": "茄苳",
+      "count_2026": 10267
+    },
+    {
+      "species": "樟樹",
+      "count_2026": 8603
+    },
+    {
+      "species": "楓香",
+      "count_2026": 7714
+    },
+    {
+      "species": "臺灣欒樹",
+      "count_2026": 6500
+    },
+    {
+      "species": "白千層",
+      "count_2026": 4556
+    },
+    {
+      "species": "黑板樹",
+      "count_2026": 4025
+    },
+    {
+      "species": "小葉欖仁",
+      "count_2026": 2818
+    },
+    {
+      "species": "大花紫薇",
+      "count_2026": 2307
+    },
+    {
+      "species": "水黃皮",
+      "count_2026": 2019
+    },
+    {
+      "species": "苦楝",
+      "count_2026": 1822
+    },
+    {
+      "species": "光蠟樹",
+      "count_2026": 1800
+    },
+    {
+      "species": "大王椰子",
+      "count_2026": 1795
+    },
+    {
+      "species": "木棉",
+      "count_2026": 1783
+    },
+    {
+      "species": "菩提樹",
+      "count_2026": 1405
+    },
+    {
+      "species": "山櫻花",
+      "count_2026": 1288
+    },
+    {
+      "species": "紫薇",
+      "count_2026": 1015
+    },
+    {
+      "species": "盾柱木",
+      "count_2026": 957
+    },
+    {
+      "species": "烏桕",
+      "count_2026": 892
+    },
+    {
+      "species": "阿勃勒",
+      "count_2026": 837
+    }
+  ]
+}

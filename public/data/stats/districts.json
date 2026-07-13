@@ -1,0 +1,238 @@
+{
+  "segments": {
+    "2224": [
+      {
+        "dist": "大安區",
+        "base": 13340,
+        "disappeared": 249,
+        "appeared": 1459,
+        "net": 1210,
+        "removal_rate": 0.0187,
+        "removal_rate_street": 0.0188
+      },
+      {
+        "dist": "士林區",
+        "base": 10400,
+        "disappeared": 780,
+        "appeared": 1369,
+        "net": 589,
+        "removal_rate": 0.075,
+        "removal_rate_street": 0.0677
+      },
+      {
+        "dist": "北投區",
+        "base": 9468,
+        "disappeared": 1535,
+        "appeared": 3102,
+        "net": 1567,
+        "removal_rate": 0.1621,
+        "removal_rate_street": 0.0405
+      },
+      {
+        "dist": "中山區",
+        "base": 9458,
+        "disappeared": 983,
+        "appeared": 1138,
+        "net": 155,
+        "removal_rate": 0.1039,
+        "removal_rate_street": 0.0524
+      },
+      {
+        "dist": "松山區",
+        "base": 8121,
+        "disappeared": 278,
+        "appeared": 469,
+        "net": 191,
+        "removal_rate": 0.0342,
+        "removal_rate_street": 0.0345
+      },
+      {
+        "dist": "內湖區",
+        "base": 8059,
+        "disappeared": 782,
+        "appeared": 797,
+        "net": 15,
+        "removal_rate": 0.097,
+        "removal_rate_street": 0.0689
+      },
+      {
+        "dist": "信義區",
+        "base": 6643,
+        "disappeared": 121,
+        "appeared": 1455,
+        "net": 1334,
+        "removal_rate": 0.0182,
+        "removal_rate_street": 0.0193
+      },
+      {
+        "dist": "中正區",
+        "base": 6468,
+        "disappeared": 426,
+        "appeared": 662,
+        "net": 236,
+        "removal_rate": 0.0659,
+        "removal_rate_street": 0.0704
+      },
+      {
+        "dist": "南港區",
+        "base": 6041,
+        "disappeared": 294,
+        "appeared": 913,
+        "net": 619,
+        "removal_rate": 0.0487,
+        "removal_rate_street": 0.0552
+      },
+      {
+        "dist": "文山區",
+        "base": 3931,
+        "disappeared": 84,
+        "appeared": 758,
+        "net": 674,
+        "removal_rate": 0.0214,
+        "removal_rate_street": 0.022
+      },
+      {
+        "dist": "萬華區",
+        "base": 3455,
+        "disappeared": 353,
+        "appeared": 370,
+        "net": 17,
+        "removal_rate": 0.1022,
+        "removal_rate_street": 0.1021
+      },
+      {
+        "dist": "大同區",
+        "base": 2691,
+        "disappeared": 304,
+        "appeared": 1120,
+        "net": 816,
+        "removal_rate": 0.113,
+        "removal_rate_street": 0.1255
+      }
+    ],
+    "2426": [
+      {
+        "dist": "大安區",
+        "base": 14550,
+        "disappeared": 975,
+        "appeared": 88,
+        "net": -887,
+        "removal_rate": 0.067,
+        "removal_rate_street": 0.0657
+      },
+      {
+        "dist": "北投區",
+        "base": 11035,
+        "disappeared": 568,
+        "appeared": 1375,
+        "net": 807,
+        "removal_rate": 0.0515,
+        "removal_rate_street": 0.0719
+      },
+      {
+        "dist": "士林區",
+        "base": 10989,
+        "disappeared": 648,
+        "appeared": 376,
+        "net": -272,
+        "removal_rate": 0.059,
+        "removal_rate_street": 0.0626
+      },
+      {
+        "dist": "中山區",
+        "base": 9613,
+        "disappeared": 491,
+        "appeared": 120,
+        "net": -371,
+        "removal_rate": 0.0511,
+        "removal_rate_street": 0.0554
+      },
+      {
+        "dist": "松山區",
+        "base": 8312,
+        "disappeared": 535,
+        "appeared": 207,
+        "net": -328,
+        "removal_rate": 0.0644,
+        "removal_rate_street": 0.0644
+      },
+      {
+        "dist": "內湖區",
+        "base": 8074,
+        "disappeared": 763,
+        "appeared": 242,
+        "net": -521,
+        "removal_rate": 0.0945,
+        "removal_rate_street": 0.0932
+      },
+      {
+        "dist": "信義區",
+        "base": 7977,
+        "disappeared": 1280,
+        "appeared": 235,
+        "net": -1045,
+        "removal_rate": 0.1605,
+        "removal_rate_street": 0.1589
+      },
+      {
+        "dist": "中正區",
+        "base": 6704,
+        "disappeared": 343,
+        "appeared": 308,
+        "net": -35,
+        "removal_rate": 0.0512,
+        "removal_rate_street": 0.0511
+      },
+      {
+        "dist": "南港區",
+        "base": 6660,
+        "disappeared": 677,
+        "appeared": 517,
+        "net": -160,
+        "removal_rate": 0.1017,
+        "removal_rate_street": 0.0978
+      },
+      {
+        "dist": "文山區",
+        "base": 4605,
+        "disappeared": 422,
+        "appeared": 204,
+        "net": -218,
+        "removal_rate": 0.0916,
+        "removal_rate_street": 0.0849
+      },
+      {
+        "dist": "大同區",
+        "base": 3507,
+        "disappeared": 305,
+        "appeared": 110,
+        "net": -195,
+        "removal_rate": 0.087,
+        "removal_rate_street": 0.077
+      },
+      {
+        "dist": "萬華區",
+        "base": 3472,
+        "disappeared": 487,
+        "appeared": 247,
+        "net": -240,
+        "removal_rate": 0.1403,
+        "removal_rate_street": 0.144
+      }
+    ]
+  },
+  "total_2026": {
+    "大安區": 13663,
+    "北投區": 11833,
+    "士林區": 10726,
+    "中山區": 9242,
+    "松山區": 7984,
+    "內湖區": 7553,
+    "信義區": 6932,
+    "中正區": 6669,
+    "南港區": 6500,
+    "文山區": 4387,
+    "大同區": 3312,
+    "萬華區": 3232
+  }
+}

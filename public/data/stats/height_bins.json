@@ -1,0 +1,96 @@
+{
+  "field": "height_m",
+  "bins": [
+    "<5",
+    "5-10",
+    "10-15",
+    "15-20",
+    ">20"
+  ],
+  "segments": {
+    "2224": [
+      {
+        "bin": "<5",
+        "base": 16567,
+        "disappeared": 1418,
+        "appeared": 4370,
+        "removal_rate": 0.0856,
+        "removal_rate_street": 0.0514
+      },
+      {
+        "bin": "5-10",
+        "base": 46786,
+        "disappeared": 2718,
+        "appeared": 6090,
+        "removal_rate": 0.0581,
+        "removal_rate_street": 0.0408
+      },
+      {
+        "bin": "10-15",
+        "base": 19756,
+        "disappeared": 1463,
+        "appeared": 2622,
+        "removal_rate": 0.0741,
+        "removal_rate_street": 0.0568
+      },
+      {
+        "bin": "15-20",
+        "base": 4552,
+        "disappeared": 486,
+        "appeared": 486,
+        "removal_rate": 0.1068,
+        "removal_rate_street": 0.0897
+      },
+      {
+        "bin": ">20",
+        "base": 413,
+        "disappeared": 104,
+        "appeared": 40,
+        "removal_rate": 0.2518,
+        "removal_rate_street": 0.1181
+      }
+    ],
+    "2426": [
+      {
+        "bin": "<5",
+        "base": 11789,
+        "disappeared": 1466,
+        "appeared": 1958,
+        "removal_rate": 0.1244,
+        "removal_rate_street": 0.1348
+      },
+      {
+        "bin": "5-10",
+        "base": 43378,
+        "disappeared": 3402,
+        "appeared": 1600,
+        "removal_rate": 0.0784,
+        "removal_rate_street": 0.0822
+      },
+      {
+        "bin": "10-15",
+        "base": 32381,
+        "disappeared": 2143,
+        "appeared": 394,
+        "removal_rate": 0.0662,
+        "removal_rate_street": 0.0692
+      },
+      {
+        "bin": "15-20",
+        "base": 7490,
+        "disappeared": 466,
+        "appeared": 70,
+        "removal_rate": 0.0622,
+        "removal_rate_street": 0.0644
+      },
+      {
+        "bin": ">20",
+        "base": 443,
+        "disappeared": 13,
+        "appeared": 6,
+        "removal_rate": 0.0293,
+        "removal_rate_street": 0.0302
+      }
+    ]
+  }
+}

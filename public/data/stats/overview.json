@@ -1,0 +1,60 @@
+{
+  "epochs": [
+    {
+      "key": "2022",
+      "date": "2022-10-15",
+      "total": 88075,
+      "total_street": 74471
+    },
+    {
+      "key": "2024",
+      "date": "2024-11-21",
+      "total": 95498,
+      "total_street": 84612
+    },
+    {
+      "key": "2026",
+      "date": "2026-07-12",
+      "total": 92033,
+      "total_street": 81699
+    }
+  ],
+  "segments": [
+    {
+      "key": "2224",
+      "base": 88075,
+      "disappeared": 6189,
+      "appeared": 13612,
+      "persisted": 81886,
+      "net": 7423,
+      "renumber_suspect": 1076,
+      "removal_rate": 0.0703,
+      "removal_rate_norenumber": 0.0581,
+      "base_street": 74471,
+      "disappeared_street": 3655,
+      "appeared_street": 10567,
+      "persisted_street": 70816,
+      "net_street": 6912,
+      "removal_rate_street": 0.0491
+    },
+    {
+      "key": "2426",
+      "base": 95498,
+      "disappeared": 7494,
+      "appeared": 4029,
+      "persisted": 88004,
+      "net": -3465,
+      "renumber_suspect": 221,
+      "removal_rate": 0.0785,
+      "removal_rate_norenumber": 0.0762,
+      "base_street": 84612,
+      "disappeared_street": 6925,
+      "appeared_street": 3982,
+      "persisted_street": 77687,
+      "net_street": -2943,
+      "removal_rate_street": 0.0818
+    }
+  ],
+  "species_count": 292,
+  "generated_at": "2026-07-13T08:36:34.749210+00:00"
+}

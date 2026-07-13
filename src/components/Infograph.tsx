@@ -19,6 +19,8 @@ import {
   type Bin,
   type WFBar,
 } from "./charts";
+import { SpeciesTable } from "./SpeciesTable";
+import { DistrictTable } from "./DistrictTable";
 
 interface InfographProps {
   /** 點擊消失熱點卡片 → 飛到地圖對應位置（App 提供，對接 T2 地圖）。 */
@@ -83,6 +85,8 @@ export function Infograph({ onFlyTo }: InfographProps) {
   const [street, setStreet] = useState(false); // false = 全部含公園
   const [rateLimit, setRateLimit] = useState(10);
   const [netLimit, setNetLimit] = useState(6);
+  const [speciesView, setSpeciesView] = useState<"chart" | "table">("chart");
+  const [districtView, setDistrictView] = useState<"chart" | "table">("chart");
 
   if (!stats) {
     return (
@@ -158,43 +162,51 @@ export function Infograph({ onFlyTo }: InfographProps) {
         </button>
       </div>
 
-      {/* ② 樹種消失率排行 */}
-      <Block
-        n="②"
-        title="各樹種離冊率排行"
-        hint="基數 ≥ 100 的樹種才入榜，避免小樣本雜訊"
-        insight={<SpeciesRateInsight seg={seg} street={street} species={species} />}
-        note={`${scopeNote()} · 分母為該段起點在冊數 · 依離冊率排序取前 ${rateLimit}`}
-      >
-        <HBarChart {...buildSpeciesRate(species.segments[seg], street, rateLimit)} />
-        {rateLimit < 50 && (
-          <button className="show-more" onClick={() => setRateLimit((n) => Math.min(n + 10, 50))}>
-            + 顯示更多（目前 {rateLimit}，最多 50）
-          </button>
-        )}
-      </Block>
+      {/* ②③ 樹種分析（圖表 / 表格 切換） */}
+      <div className="stat-block">
+        <div className="sb-head">
+          <span className="sb-n">②</span>
+          <div style={{ flex: 1 }}>
+            <h3 className="sb-title">各樹種清冊變化</h3>
+            <p className="sb-hint">離冊率、新增率、淨變化一覽</p>
+          </div>
+          <div className="pill-switch">
+            <button className={speciesView === "chart" ? "on" : ""} onClick={() => setSpeciesView("chart")}>圖表</button>
+            <button className={speciesView === "table" ? "on" : ""} onClick={() => setSpeciesView("table")}>表格</button>
+          </div>
+        </div>
 
-      {/* ③ 淨流失 vs 淨增 */}
-      <Block
-        n="③"
-        title="各樹種淨變化"
-        hint="淨變化 = 新增 − 消失，正為淨增、負為淨流失"
-        insight={<NetInsight seg={seg} species={species} />}
-        note={`${segLabel} · ${ALL_ONLY} · 消失樹屬性取自舊期、新增取自新期`}
-      >
-        <ChartLegend
-          items={[
-            { c: "var(--st-gone)", t: "淨流失" },
-            { c: "var(--st-new)", t: "淨增" },
-          ]}
-        />
-        <DivergingBars {...buildNet(species.segments[seg], netLimit)} />
-        {netLimit < 25 && (
-          <button className="show-more" onClick={() => setNetLimit((n) => Math.min(n + 10, 25))}>
-            + 顯示更多（目前各 {netLimit}，最多各 25）
-          </button>
+        {speciesView === "chart" ? (
+          <div className="sb-chart">
+            <h4 className="sub-chart-title">離冊率排行（基數 ≥ 100）</h4>
+            <HBarChart {...buildSpeciesRate(species.segments[seg], street, rateLimit)} />
+            {rateLimit < 50 && (
+              <button className="show-more" onClick={() => setRateLimit((n) => Math.min(n + 10, 50))}>
+                + 顯示更多（目前 {rateLimit}，最多 50）
+              </button>
+            )}
+            <h4 className="sub-chart-title" style={{ marginTop: 24 }}>各樹種淨變化</h4>
+            <ChartLegend
+              items={[
+                { c: "var(--st-gone)", t: "淨流失" },
+                { c: "var(--st-new)", t: "淨增" },
+              ]}
+            />
+            <DivergingBars {...buildNet(species.segments[seg], netLimit)} />
+            {netLimit < 25 && (
+              <button className="show-more" onClick={() => setNetLimit((n) => Math.min(n + 10, 25))}>
+                + 顯示更多（目前各 {netLimit}，最多各 25）
+              </button>
+            )}
+          </div>
+        ) : (
+          <div className="sb-chart">
+            <SpeciesTable rows={species.segments[seg]} minBase={street ? 0 : 0} />
+          </div>
         )}
-      </Block>
+
+        <p className="sb-note">{scopeNote()} · 點擊欄位標題可排序</p>
+      </div>
 
       {/* ④ 胸徑 / 樹高分級距 */}
       <Block
@@ -216,16 +228,35 @@ export function Infograph({ onFlyTo }: InfographProps) {
         </div>
       </Block>
 
-      {/* ⑤ 12 行政區 */}
-      <Block
-        n="⑤"
-        title="12 行政區離冊率分布"
-        hint="條末小字為該區淨變化（紅＝淨減、綠＝淨增）"
-        insight={<DistrictInsight street={street} districts={districts.segments[seg]} />}
-        note={`${scopeNote()} · 依消失率排序`}
-      >
-        <HBarChart {...buildDistricts(districts.segments[seg], street)} />
-      </Block>
+      {/* ⑤ 12 行政區（圖表 / 表格 切換） */}
+      <div className="stat-block">
+        <div className="sb-head">
+          <span className="sb-n">⑤</span>
+          <div style={{ flex: 1 }}>
+            <h3 className="sb-title">12 行政區清冊變化</h3>
+            <p className="sb-hint">各區離冊率、新增率、淨變化</p>
+          </div>
+          <div className="pill-switch">
+            <button className={districtView === "chart" ? "on" : ""} onClick={() => setDistrictView("chart")}>圖表</button>
+            <button className={districtView === "table" ? "on" : ""} onClick={() => setDistrictView("table")}>表格</button>
+          </div>
+        </div>
+
+        {districtView === "chart" ? (
+          <div className="sb-chart">
+            <HBarChart {...buildDistricts(districts.segments[seg], street)} />
+            <p className="sb-insight">
+              <DistrictInsight street={street} districts={districts.segments[seg]} />
+            </p>
+          </div>
+        ) : (
+          <div className="sb-chart">
+            <DistrictTable rows={districts.segments[seg]} />
+          </div>
+        )}
+
+        <p className="sb-note">{scopeNote()} · 點擊欄位標題可排序</p>
+      </div>
 
       {/* ⑥ 整排消失熱點 */}
       <Block
@@ -396,49 +427,6 @@ function Overview1Insight({ overview }: { overview: NonNullable<ReturnType<typeo
   );
 }
 
-function SpeciesRateInsight({
-  seg,
-  street,
-  species,
-}: {
-  seg: SegKey;
-  street: boolean;
-  species: NonNullable<ReturnType<typeof useStats>>["species"];
-}) {
-  const picked = species.segments[seg]
-    .filter((r) => r.species !== "其他" && pickBase(r, street) >= 100)
-    .sort((a, b) => pickRate(b, street) - pickRate(a, street));
-  const t = picked.slice(0, 3);
-  if (t.length === 0) return <>此範圍沒有基數 ≥ 100 的樹種。</>;
-  return (
-    <>
-      離冊率前三：<b>{t[0].species} {fmtPct(pickRate(t[0], street))}</b>
-      {t[1] && <>、{t[1].species} {fmtPct(pickRate(t[1], street))}</>}
-      {t[2] && <>、{t[2].species} {fmtPct(pickRate(t[2], street))}</>}。基數較小的樹種排名波動較大，
-      可切換「只看道路」觀察是否集中於特定公園。
-    </>
-  );
-}
-
-function NetInsight({ seg, species }: { seg: SegKey; species: NonNullable<ReturnType<typeof useStats>>["species"] }) {
-  const list = species.segments[seg].filter((r) => r.species !== "其他");
-  const loss0 = [...list].sort((a, b) => a.net - b.net)[0];
-  const gain0 = [...list].sort((a, b) => b.net - a.net)[0];
-  if (seg === "2426") {
-    return (
-      <>
-        淨減最多的「<b>{loss0.species}</b>」離冊 {Math.abs(loss0.net)} 棵，淨增最多的「
-        <b>{gain0.species}</b>」新入冊 {gain0.net} 棵。離冊數量與新入冊數量之間存在落差。
-      </>
-    );
-  }
-  return (
-    <>
-      這一段整體是擴張期：多數樹種淨增（<b>{gain0.species} {fmtSigned(gain0.net)}</b>、其後為樟樹、楓香），
-      只有少數如「{loss0.species}」（{fmtSigned(loss0.net)}，多在線形公園）淨減。
-    </>
-  );
-}
 
 function BinsInsight({
   seg,

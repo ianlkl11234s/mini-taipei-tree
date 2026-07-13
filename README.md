@@ -1,45 +1,47 @@
-# mini-taipei-trees — 台北行道樹探索
+# 台北行道樹探索
 
-> 面向民眾的單一主題資料視覺化網站：台北市行道樹在 **2022-10 / 2024-11 / 2026-07** 三個時點的
-> **新增（appeared）／維持（persisted）／消失（disappeared）** 狀態地圖 + 統計 infograph。
-> 讓任何人都能探索：哪裡的樹消失了、哪裡種了新樹、什麼樹種／什麼胸徑的樹變動最大。
+比對台北市公園處 2022、2024、2026 三個時點的行道樹清冊，以互動地圖與統計圖表呈現每棵樹的在冊狀態變化。
 
-## 專案定位
+**線上版**：https://mini-tree.itsmigu.com
 
-- **只做一件事**：行道樹狀態探索。不做通報（那是 `../tree-report/`）、不做多主題儀錶板（那是 `../mini-taiwan-info/`）。
-- 資料上游：`../taipei-gis-analytics/` 的 `street_tree_removal` 主題研究（Wayback 三時點快照 + diff pipeline）。
-- 生態定位：GIS 生態系「應用層」的獨立 app，與 mini-taiwan-* 系列平行。
+## 功能
 
-## 現在的狀態（給接手的 agent / 人）
+- **逐棵地圖**：10 萬+ 棵行道樹以三色點位呈現（維持 / 離冊 / 新入冊），支援時段、狀態、樹種、胸徑、行政區篩選
+- **多視圖切換**：點位 / 熱力圖 / 禁航區疊圖
+- **統計分析**：各樹種離冊率排行、淨變化、尺寸分析、行政區比較，支援圖表與可排序表格切換
+- **H3 空間分析**：六邊形網格聚合離冊率，含透明度調整與方法論說明
+- **完整樹種列表**：303 種樹種瀏覽與搜尋
+- **亮暗主題**、RWD 手機適配
 
-**先讀 `docs/AGENT_TASKS.md`**——那是任務看板與驗收標準 SSOT。其餘文件：
+## 技術棧
 
-| 文件 | 內容 |
-|------|------|
-| `docs/PLAN.md` | 網站內容規劃、資訊架構、Phase 0-3、架構決策與理由 |
-| `docs/DATA_CONTRACT.md` | 三時點資料 schema、stats JSON 格式、**所有資料陷阱**（單位差 100 倍等） |
-| `docs/AGENT_TASKS.md` | T1-T4 任務卡（含驗收數字）+ 進度勾選 |
-| `docs/RESEARCH_NOTES.md` | 探索期三路調查摘要（資料資產／參考 repo 可抄檔案／外部資料源） |
+- **前端**：Vite + React 18 + TypeScript
+- **地圖**：mapbox-gl 3.25.0 + mapbox-pmtiles（PMTiles 向量圖磚）
+- **圖表**：手刻 SVG
+- **部署**：Docker (nginx) → Zeabur
 
-## 技術棧（拍板，理由見 PLAN.md §決策）
-
-Vite + React 18 + TypeScript + mapbox-gl 3.x + mapbox-pmtiles（PMTiles 向量磚）
-+ 手刻 SVG 圖表（抄 mini-taiwan-info）+ design tokens CSS（無 tailwind）+ Zeabur Docker 部署。
-
-## 快速啟動（scaffold 完成後）
+## 快速啟動
 
 ```bash
 pnpm install
-cp .env.example .env   # 填 VITE_MAPBOX_TOKEN
+cp .env.example .env   # 填入 VITE_MAPBOX_TOKEN
 pnpm dev
 ```
 
-## 關聯 repo
+## 資料來源
 
-| repo | 關係 |
+| 來源 | 說明 |
 |------|------|
-| `../taipei-gis-analytics/` | 資料上游；pipeline `pipelines/urban_open_space/street_trees_taipei_*`；主題入口 `docs/topic-research/street_tree_removal/_status.md` |
-| `../mini-taiwan-info/` | UI/圖表/部署模板來源 |
-| `../mini-taiwan-project-new-taipei/` | PMTiles 地圖程式碼來源 |
-| `../mini-taiwan-pulse/` | 既有 street_trees_taipei_diff 圖層已上線處（PR #65），本站是其深化獨立版 |
-| `../tree-report/` | 姊妹方向（民眾通報 VGI POC），未來可互連 |
+| 台北市公園處行道樹清冊 | [data.taipei](https://data.taipei/dataset?qs=%E8%A1%8C%E9%81%93%E6%A8%B9)（2024-11、2026-07 官方版本） |
+| Wayback Machine | 2022-10 清冊歷史存檔 |
+| 民航局無人機禁航區 | 遙控無人機管理資訊系統（2026-06-30） |
+
+## 注意事項
+
+- `mapbox-gl` 鎖定 3.25.0（3.26 與 mapbox-pmtiles 1.0.56 不相容）
+- `mapbox-pmtiles` 必須 import `mapbox-pmtiles/dist/mapbox-pmtiles.js`
+- 「消失」指從清冊上不再出現，不等於被移除
+
+## 授權
+
+資料依「政府資料開放授權條款」釋出。程式碼 MIT。

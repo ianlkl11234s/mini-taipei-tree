@@ -79,14 +79,24 @@ const ALL_ONLY = "全部（含公園綠地）";
 const PARK_RE = /公園|綠地|綠帶|綠道/;
 const isPark = (road: string) => PARK_RE.test(road);
 
+type MetricKey = "removal_rate" | "disappeared" | "base" | "appeared" | "net";
+const METRIC_OPTIONS: { key: MetricKey; label: string }[] = [
+  { key: "removal_rate", label: "離冊率" },
+  { key: "disappeared", label: "離冊數" },
+  { key: "appeared", label: "新增數" },
+  { key: "base", label: "在冊數" },
+  { key: "net", label: "淨變化" },
+];
+
 export function Infograph({ onFlyTo }: InfographProps) {
   const stats = useStats();
   const [seg, setSeg] = useState<SegKey>("2426");
   const [street, setStreet] = useState(false); // false = 全部含公園
-  const [rateLimit, setRateLimit] = useState(10);
-  const [netLimit, setNetLimit] = useState(6);
   const [speciesView, setSpeciesView] = useState<"chart" | "table">("chart");
+  const [speciesMetric, setSpeciesMetric] = useState<"removal_rate" | "disappeared" | "base" | "appeared" | "net">("removal_rate");
+  const [speciesChartLimit, setSpeciesChartLimit] = useState(10);
   const [districtView, setDistrictView] = useState<"chart" | "table">("chart");
+  const [districtMetric, setDistrictMetric] = useState<"removal_rate" | "disappeared" | "base" | "appeared" | "net">("removal_rate");
 
   if (!stats) {
     return (
@@ -162,13 +172,13 @@ export function Infograph({ onFlyTo }: InfographProps) {
         </button>
       </div>
 
-      {/* ②③ 樹種分析（圖表 / 表格 切換） */}
+      {/* ② 樹種分析（圖表 / 表格 切換） */}
       <div className="stat-block">
         <div className="sb-head">
           <span className="sb-n">②</span>
           <div style={{ flex: 1 }}>
             <h3 className="sb-title">各樹種清冊變化</h3>
-            <p className="sb-hint">離冊率、新增率、淨變化一覽</p>
+            <p className="sb-hint">選擇指標與呈現方式</p>
           </div>
           <div className="pill-switch">
             <button className={speciesView === "chart" ? "on" : ""} onClick={() => setSpeciesView("chart")}>圖表</button>
@@ -178,34 +188,40 @@ export function Infograph({ onFlyTo }: InfographProps) {
 
         {speciesView === "chart" ? (
           <div className="sb-chart">
-            <h4 className="sub-chart-title">離冊率排行（基數 ≥ 100）</h4>
-            <HBarChart {...buildSpeciesRate(species.segments[seg], street, rateLimit)} />
-            {rateLimit < 50 && (
-              <button className="show-more" onClick={() => setRateLimit((n) => Math.min(n + 10, 50))}>
-                + 顯示更多（目前 {rateLimit}，最多 50）
-              </button>
-            )}
-            <h4 className="sub-chart-title" style={{ marginTop: 24 }}>各樹種淨變化</h4>
-            <ChartLegend
-              items={[
-                { c: "var(--st-gone)", t: "淨流失" },
-                { c: "var(--st-new)", t: "淨增" },
-              ]}
-            />
-            <DivergingBars {...buildNet(species.segments[seg], netLimit)} />
-            {netLimit < 25 && (
-              <button className="show-more" onClick={() => setNetLimit((n) => Math.min(n + 10, 25))}>
-                + 顯示更多（目前各 {netLimit}，最多各 25）
-              </button>
+            <div className="metric-pills">
+              {METRIC_OPTIONS.map((m) => (
+                <button key={m.key} className={speciesMetric === m.key ? "on" : ""} onClick={() => { setSpeciesMetric(m.key); setSpeciesChartLimit(10); }}>
+                  {m.label}
+                </button>
+              ))}
+            </div>
+            {speciesMetric === "net" ? (
+              <>
+                <DivergingBars {...buildNet(species.segments[seg], speciesChartLimit)} />
+                {speciesChartLimit < 25 && (
+                  <button className="show-more" onClick={() => setSpeciesChartLimit((n) => Math.min(n + 10, 25))}>
+                    + 顯示更多（目前各 {speciesChartLimit}，最多各 25）
+                  </button>
+                )}
+              </>
+            ) : (
+              <>
+                <HBarChart {...buildSpeciesBy(species.segments[seg], street, speciesMetric, speciesChartLimit)} />
+                {speciesChartLimit < 50 && (
+                  <button className="show-more" onClick={() => setSpeciesChartLimit((n) => Math.min(n + 10, 50))}>
+                    + 顯示更多（目前 {speciesChartLimit}，最多 50）
+                  </button>
+                )}
+              </>
             )}
           </div>
         ) : (
           <div className="sb-chart">
-            <SpeciesTable rows={species.segments[seg]} minBase={street ? 0 : 0} />
+            <SpeciesTable rows={species.segments[seg]} />
           </div>
         )}
 
-        <p className="sb-note">{scopeNote()} · 點擊欄位標題可排序</p>
+        <p className="sb-note">{scopeNote()} · {speciesView === "chart" ? "基數 ≥ 100 的樹種才入榜" : "點擊欄位標題可排序"}</p>
       </div>
 
       {/* ④ 胸徑 / 樹高分級距 */}
@@ -244,10 +260,18 @@ export function Infograph({ onFlyTo }: InfographProps) {
 
         {districtView === "chart" ? (
           <div className="sb-chart">
-            <HBarChart {...buildDistricts(districts.segments[seg], street)} />
-            <p className="sb-insight">
-              <DistrictInsight street={street} districts={districts.segments[seg]} />
-            </p>
+            <div className="metric-pills">
+              {METRIC_OPTIONS.map((m) => (
+                <button key={m.key} className={districtMetric === m.key ? "on" : ""} onClick={() => setDistrictMetric(m.key)}>
+                  {m.label}
+                </button>
+              ))}
+            </div>
+            {districtMetric === "net" ? (
+              <DivergingBars {...buildDistrictNet(districts.segments[seg])} />
+            ) : (
+              <HBarChart {...buildDistrictBy(districts.segments[seg], street, districtMetric)} />
+            )}
           </div>
         ) : (
           <div className="sb-chart">
@@ -319,34 +343,6 @@ function buildWaterfall(ov: Overview): { bars: WFBar[]; yMax: number } {
   return { bars, yMax };
 }
 
-function buildSpeciesRate(rows: SpeciesRow[], street: boolean, limit = 10): {
-  rows: HBarRow[];
-  max: number;
-  fmtValue: (v: number) => string;
-  color: string;
-} {
-  const picked = rows
-    .filter((r) => r.species !== "其他" && pickBase(r, street) >= 100)
-    .sort((a, b) => pickRate(b, street) - pickRate(a, street));
-  const sliced = picked.slice(0, limit);
-  const max = Math.max(0.01, ...sliced.map((r) => pickRate(r, street)));
-  return {
-    rows: sliced.map((r, i) => {
-      const base = pickBase(r, street);
-      const rate = pickRate(r, street);
-      return {
-        key: r.species,
-        label: r.species,
-        value: rate,
-        highlight: i === 0,
-        title: `${r.species}：消失率 ${fmtPct(rate)}（基數 ${fmtInt(base)} 棵）`,
-      };
-    }),
-    max,
-    fmtValue: (v) => fmtPct(v),
-    color: "var(--st-gone)",
-  };
-}
 
 function buildNet(rows: SpeciesRow[], limit = 6): { rows: DivRow[]; max: number } {
   const list = rows.filter((r) => r.species !== "其他");
@@ -384,31 +380,85 @@ function buildBins(
   };
 }
 
-function buildDistricts(
-  rows: { dist: string; net: number; removal_rate: number; removal_rate_street: number }[],
+
+
+function buildSpeciesBy(
+  rows: SpeciesRow[],
   street: boolean,
-): { rows: HBarRow[]; max: number; fmtValue: (v: number) => string; color: string; rowH: number; valueW: number; labelW: number } {
-  const sorted = [...rows].sort((a, b) => pickRate(b, street) - pickRate(a, street));
-  const max = Math.max(0.01, ...sorted.map((r) => pickRate(r, street)));
+  metric: "removal_rate" | "disappeared" | "base" | "appeared",
+  limit: number,
+): { rows: HBarRow[]; max: number; fmtValue: (v: number) => string; color: string } {
+  const isRate = metric === "removal_rate";
+  const getVal = (r: SpeciesRow) => {
+    if (metric === "removal_rate") return pickRate(r, street);
+    if (metric === "disappeared") return r.disappeared;
+    if (metric === "appeared") return r.appeared;
+    return pickBase(r, street);
+  };
+  const color = metric === "appeared" ? "var(--st-new)" : metric === "base" ? "var(--forest)" : "var(--st-gone)";
+  const filtered = rows
+    .filter((r) => r.species !== "其他" && (isRate ? pickBase(r, street) >= 100 : true))
+    .sort((a, b) => getVal(b) - getVal(a))
+    .slice(0, limit);
+  const max = Math.max(isRate ? 0.01 : 1, ...filtered.map(getVal));
   return {
-    rows: sorted.map((r, i) => {
-      const rate = pickRate(r, street);
-      return {
-        key: r.dist,
-        label: r.dist,
-        value: rate,
-        highlight: i === 0,
-        note: fmtSigned(r.net),
-        noteColor: r.net < 0 ? "var(--st-gone)" : "var(--forest)",
-        title: `${r.dist}：消失率 ${fmtPct(rate)} · 淨變化 ${fmtSigned(r.net)}`,
-      };
-    }),
+    rows: filtered.map((r, i) => ({
+      key: r.species,
+      label: r.species,
+      value: getVal(r),
+      highlight: i === 0,
+    })),
     max,
-    fmtValue: (v) => fmtPct(v),
-    color: "var(--st-gone)",
+    fmtValue: isRate ? fmtPct : (v) => fmtInt(v),
+    color,
+  };
+}
+
+function buildDistrictBy(
+  rows: { dist: string; base: number; disappeared: number; appeared: number; net: number; removal_rate: number; removal_rate_street: number }[],
+  street: boolean,
+  metric: "removal_rate" | "disappeared" | "base" | "appeared",
+): { rows: HBarRow[]; max: number; fmtValue: (v: number) => string; color: string; rowH: number; valueW: number; labelW: number } {
+  const isRate = metric === "removal_rate";
+  const getVal = (r: typeof rows[0]) => {
+    if (metric === "removal_rate") return pickRate(r, street);
+    if (metric === "disappeared") return r.disappeared;
+    if (metric === "appeared") return r.appeared;
+    return r.base;
+  };
+  const color = metric === "appeared" ? "var(--st-new)" : metric === "base" ? "var(--forest)" : "var(--st-gone)";
+  const sorted = [...rows].sort((a, b) => getVal(b) - getVal(a));
+  const max = Math.max(isRate ? 0.01 : 1, ...sorted.map(getVal));
+  return {
+    rows: sorted.map((r, i) => ({
+      key: r.dist,
+      label: r.dist,
+      value: getVal(r),
+      highlight: i === 0,
+      note: fmtSigned(r.net),
+      noteColor: r.net < 0 ? "var(--st-gone)" : "var(--forest)",
+    })),
+    max,
+    fmtValue: isRate ? fmtPct : (v) => fmtInt(v),
+    color,
     rowH: 34,
     valueW: 68,
     labelW: 68,
+  };
+}
+
+function buildDistrictNet(
+  rows: { dist: string; net: number }[],
+): { rows: DivRow[]; max: number } {
+  const sorted = [...rows].sort((a, b) => a.net - b.net);
+  const max = Math.max(1, ...sorted.map((r) => Math.abs(r.net)));
+  return {
+    rows: sorted.map((r) => ({
+      key: r.dist,
+      label: r.dist,
+      net: r.net,
+    })),
+    max,
   };
 }
 
@@ -456,23 +506,6 @@ function BinsInsight({
   );
 }
 
-function DistrictInsight({
-  street,
-  districts,
-}: {
-  street: boolean;
-  districts: NonNullable<ReturnType<typeof useStats>>["districts"]["segments"][SegKey];
-}) {
-  const sorted = [...districts].sort((a, b) => pickRate(b, street) - pickRate(a, street));
-  const hi = sorted[0];
-  const lo = sorted[sorted.length - 1];
-  return (
-    <>
-      各區離冊率差異：<b>{hi.dist}</b> 離冊率最高（{fmtPct(pickRate(hi, street))}），
-      <b>{lo.dist}</b> 最低（{fmtPct(pickRate(lo, street))}）。各行政區之間的離冊率分布不均。
-    </>
-  );
-}
 
 function ClusterInsight({
   seg,

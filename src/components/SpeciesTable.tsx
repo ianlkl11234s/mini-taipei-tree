@@ -42,13 +42,14 @@ function getValue(r: Row, key: SortKey): number | string {
   }
 }
 
-export function SpeciesTable({ rows, minBase = 0 }: { rows: SpeciesRow[]; minBase?: number }) {
+export function SpeciesTable({ rows }: { rows: SpeciesRow[] }) {
   const [sortKey, setSortKey] = useState<SortKey>("removal_rate");
   const [sortDir, setSortDir] = useState<SortDir>("desc");
+  const [limit, setLimit] = useState(10);
 
   const data = useMemo(() => {
     const enriched = rows
-      .filter((r) => r.species !== "其他" && r.base >= minBase)
+      .filter((r) => r.species !== "其他")
       .map(enrich);
     return enriched.sort((a, b) => {
       const va = getValue(a, sortKey);
@@ -59,7 +60,9 @@ export function SpeciesTable({ rows, minBase = 0 }: { rows: SpeciesRow[]; minBas
       const na = va as number, nb = vb as number;
       return sortDir === "asc" ? na - nb : nb - na;
     });
-  }, [rows, minBase, sortKey, sortDir]);
+  }, [rows, sortKey, sortDir]);
+
+  const shown = data.slice(0, limit);
 
   const toggle = (key: SortKey) => {
     if (sortKey === key) {
@@ -92,7 +95,7 @@ export function SpeciesTable({ rows, minBase = 0 }: { rows: SpeciesRow[]; minBas
           </tr>
         </thead>
         <tbody>
-          {data.map((r, i) => (
+          {shown.map((r, i) => (
             <tr key={r.species}>
               <td className="sp-rank">{i + 1}</td>
               <td className="sp-name">{r.species}</td>
@@ -111,6 +114,11 @@ export function SpeciesTable({ rows, minBase = 0 }: { rows: SpeciesRow[]; minBas
           ))}
         </tbody>
       </table>
+      {limit < data.length && (
+        <button className="show-more" onClick={() => setLimit((n) => Math.min(n + 10, data.length))}>
+          + 顯示更多（{shown.length}/{data.length}）
+        </button>
+      )}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import type { SegmentKey } from "../lib/dataSource";
 import type { TreeStatus } from "../lib/status";
 
-export type MapViewMode = "points" | "heatmap" | "h3";
+export type MapViewMode = "points" | "heatmap" | "drone";
 
 /** 胸徑上限：滑桿最大值代表「> 60cm（開放上界）」。 */
 export const DBH_MAX_CAP = 60;

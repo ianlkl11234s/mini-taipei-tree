@@ -81,6 +81,8 @@ export function Infograph({ onFlyTo }: InfographProps) {
   const stats = useStats();
   const [seg, setSeg] = useState<SegKey>("2426");
   const [street, setStreet] = useState(false); // false = 全部含公園
+  const [rateLimit, setRateLimit] = useState(10);
+  const [netLimit, setNetLimit] = useState(6);
 
   if (!stats) {
     return (
@@ -156,35 +158,43 @@ export function Infograph({ onFlyTo }: InfographProps) {
         </button>
       </div>
 
-      <div className="stat-grid">
-        {/* ② 樹種消失率排行 */}
-        <Block
-          n="②"
-          title="各樹種離冊率排行"
-          hint="基數 ≥ 100 的樹種才入榜，避免小樣本雜訊"
-          insight={<SpeciesRateInsight seg={seg} street={street} species={species} />}
-          note={`${scopeNote()} · 分母為該段起點在冊數 · 依消失率排序取前 10`}
-        >
-          <HBarChart {...buildSpeciesRate(species.segments[seg], street)} />
-        </Block>
+      {/* ② 樹種消失率排行 */}
+      <Block
+        n="②"
+        title="各樹種離冊率排行"
+        hint="基數 ≥ 100 的樹種才入榜，避免小樣本雜訊"
+        insight={<SpeciesRateInsight seg={seg} street={street} species={species} />}
+        note={`${scopeNote()} · 分母為該段起點在冊數 · 依離冊率排序取前 ${rateLimit}`}
+      >
+        <HBarChart {...buildSpeciesRate(species.segments[seg], street, rateLimit)} />
+        {rateLimit < 50 && (
+          <button className="show-more" onClick={() => setRateLimit((n) => Math.min(n + 10, 50))}>
+            + 顯示更多（目前 {rateLimit}，最多 50）
+          </button>
+        )}
+      </Block>
 
-        {/* ③ 淨流失 vs 淨增 */}
-        <Block
-          n="③"
-          title="各樹種淨變化"
-          hint="淨變化 = 新增 − 消失，正為淨增、負為淨流失"
-          insight={<NetInsight seg={seg} species={species} />}
-          note={`${segLabel} · ${ALL_ONLY} · 消失樹屬性取自舊期、新增取自新期`}
-        >
-          <ChartLegend
-            items={[
-              { c: "var(--st-gone)", t: "淨流失" },
-              { c: "var(--st-new)", t: "淨增" },
-            ]}
-          />
-          <DivergingBars {...buildNet(species.segments[seg])} />
-        </Block>
-      </div>
+      {/* ③ 淨流失 vs 淨增 */}
+      <Block
+        n="③"
+        title="各樹種淨變化"
+        hint="淨變化 = 新增 − 消失，正為淨增、負為淨流失"
+        insight={<NetInsight seg={seg} species={species} />}
+        note={`${segLabel} · ${ALL_ONLY} · 消失樹屬性取自舊期、新增取自新期`}
+      >
+        <ChartLegend
+          items={[
+            { c: "var(--st-gone)", t: "淨流失" },
+            { c: "var(--st-new)", t: "淨增" },
+          ]}
+        />
+        <DivergingBars {...buildNet(species.segments[seg], netLimit)} />
+        {netLimit < 25 && (
+          <button className="show-more" onClick={() => setNetLimit((n) => Math.min(n + 10, 25))}>
+            + 顯示更多（目前各 {netLimit}，最多各 25）
+          </button>
+        )}
+      </Block>
 
       {/* ④ 胸徑 / 樹高分級距 */}
       <Block
@@ -278,7 +288,7 @@ function buildWaterfall(ov: Overview): { bars: WFBar[]; yMax: number } {
   return { bars, yMax };
 }
 
-function buildSpeciesRate(rows: SpeciesRow[], street: boolean): {
+function buildSpeciesRate(rows: SpeciesRow[], street: boolean, limit = 10): {
   rows: HBarRow[];
   max: number;
   fmtValue: (v: number) => string;
@@ -286,11 +296,11 @@ function buildSpeciesRate(rows: SpeciesRow[], street: boolean): {
 } {
   const picked = rows
     .filter((r) => r.species !== "其他" && pickBase(r, street) >= 100)
-    .sort((a, b) => pickRate(b, street) - pickRate(a, street))
-    .slice(0, 10);
-  const max = Math.max(0.01, ...picked.map((r) => pickRate(r, street)));
+    .sort((a, b) => pickRate(b, street) - pickRate(a, street));
+  const sliced = picked.slice(0, limit);
+  const max = Math.max(0.01, ...sliced.map((r) => pickRate(r, street)));
   return {
-    rows: picked.map((r, i) => {
+    rows: sliced.map((r, i) => {
       const base = pickBase(r, street);
       const rate = pickRate(r, street);
       return {
@@ -307,10 +317,10 @@ function buildSpeciesRate(rows: SpeciesRow[], street: boolean): {
   };
 }
 
-function buildNet(rows: SpeciesRow[]): { rows: DivRow[]; max: number } {
+function buildNet(rows: SpeciesRow[], limit = 6): { rows: DivRow[]; max: number } {
   const list = rows.filter((r) => r.species !== "其他");
-  const losses = [...list].sort((a, b) => a.net - b.net).slice(0, 6);
-  const gains = [...list].sort((a, b) => b.net - a.net).slice(0, 6);
+  const losses = [...list].sort((a, b) => a.net - b.net).slice(0, limit);
+  const gains = [...list].sort((a, b) => b.net - a.net).slice(0, limit);
   const merged = [...losses, ...gains];
   const max = Math.max(1, ...merged.map((r) => Math.abs(r.net)));
   return {

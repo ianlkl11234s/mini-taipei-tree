@@ -145,7 +145,7 @@ export function DivergingBars({ rows, max }: { rows: DivRow[]; max: number }) {
   const padT = 8;
   const h = rows.length * rowH + padT * 2;
   const cx = w / 2;
-  const gutter = 46; // 兩側留給數值/標籤
+  const gutter = 72;
   const half = Math.max(30, w / 2 - gutter);
   return (
     <div ref={ref} className="chart">

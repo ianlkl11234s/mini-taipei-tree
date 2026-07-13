@@ -3,6 +3,7 @@ import type { Map as MapboxMap } from "mapbox-gl";
 import { Hero } from "./components/Hero";
 import { MapExplorer } from "./components/MapExplorer";
 import { Infograph } from "./components/Infograph";
+import { AdvancedAnalysis } from "./components/AdvancedAnalysis";
 import { About } from "./components/About";
 import { SiteFooter } from "./components/Placeholders";
 import { IconTree, IconSun, IconMoon } from "./components/icons";
@@ -44,6 +45,7 @@ export default function App() {
         <nav className="header-nav">
           <a href="#explore">地圖探索</a>
           <a href="#stats">統計</a>
+          <a href="#advanced">進階分析</a>
           <a href="#about">關於資料</a>
         </nav>
         <button
@@ -75,6 +77,7 @@ export default function App() {
         </section>
 
         <Infograph onFlyTo={flyTo} />
+        <AdvancedAnalysis />
         <About />
       </main>
 

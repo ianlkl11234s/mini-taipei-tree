@@ -9,6 +9,7 @@ export function SiteFooter() {
       <span className="spacer" />
       <a href="#explore">地圖探索</a>
       <a href="#stats">統計</a>
+      <a href="#advanced">進階分析</a>
       <a href="#about">關於資料</a>
     </footer>
   );

@@ -1,7 +1,7 @@
 """
 gen_h3_grid.py — 預計算 H3 六邊形網格統計
 ===========================================
-讀取三期合併 GeoJSON，依 H3 resolution 8 聚合每格的消失率統計，
+讀取三期合併 GeoJSON，依 H3 resolution 9 聚合每格的消失率統計，
 產出 public/data/h3_grid.geojson 供前端 choropleth 使用。
 
 用法：
@@ -28,7 +28,7 @@ UPSTREAM_GEOJSON = (
 )
 OUTPUT_PATH = PROJECT_ROOT / "public" / "data" / "h3_grid.geojson"
 
-H3_RES = 8
+H3_RES = 9
 SEGMENTS = ["2224", "2426"]
 
 

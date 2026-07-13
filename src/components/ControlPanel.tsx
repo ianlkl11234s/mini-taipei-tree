@@ -5,7 +5,7 @@ import { DISTRICTS, type FilterState, type MapViewMode } from "../filters/types"
 const VIEW_MODES: { key: MapViewMode; label: string }[] = [
   { key: "points", label: "點位" },
   { key: "heatmap", label: "熱力圖" },
-  { key: "h3", label: "H3 網格" },
+  { key: "drone", label: "禁航區" },
 ];
 import { fmtInt } from "../lib/format";
 import { DbhRange } from "./DbhRange";

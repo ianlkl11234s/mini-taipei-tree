@@ -3,7 +3,7 @@ import type { Map as MapboxMap, LngLatLike, MapMouseEvent } from "mapbox-gl";
 import { MapView } from "../map/MapView";
 import { useTreeLayer, TREE_LAYER_ID, type TreeFeatureClick } from "../map/useTreeLayer";
 import { useHeatmapLayer } from "../map/useHeatmapLayer";
-import { useH3Layer } from "../map/useH3Layer";
+import { useDroneLayer } from "../map/useH3Layer";
 import { FIELDS, type SegmentKey } from "../lib/dataSource";
 import { type TreeStatus } from "../lib/status";
 import { defaultFilterState, type FilterState, type MapViewMode } from "../filters/types";
@@ -72,7 +72,7 @@ export function MapExplorer({ onMap }: MapExplorerProps) {
 
   useTreeLayer(map, styleEpoch, filter, onFeatureClick);
   useHeatmapLayer(map, styleEpoch, filter);
-  useH3Layer(map, styleEpoch, filter);
+  useDroneLayer(map, styleEpoch, filter);
 
   // popup 像素定位：隨地圖移動重算
   useEffect(() => {

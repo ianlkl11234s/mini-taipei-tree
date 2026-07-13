@@ -111,7 +111,7 @@ export function useTreeLayer(
       map.setPaintProperty(TREE_LAYER_ID, "circle-opacity", buildOpacityExpr(renumberField));
     }
     map.setPaintProperty(TREE_LAYER_ID, "circle-radius", radiusExpr(filter.circleScale));
-    const vis = filter.mapView === "points" ? "visible" : "none";
+    const vis = filter.mapView === "points" || filter.mapView === "drone" ? "visible" : "none";
     map.setLayoutProperty(TREE_LAYER_ID, "visibility", vis);
   }, [map, styleEpoch, filter]);
 }

@@ -42,8 +42,8 @@ export function useTreeLayer(
 
     const before = firstSymbolLayerId(map);
     const seg0 = filterRef.current.segment;
-    const statusField = statusFieldFor(seg0) ?? FIELDS.status2426;
-    const renumberField = renumberFieldFor(seg0) ?? FIELDS.renumber2426;
+    const statusField = statusFieldFor(seg0) ?? FIELDS.status0307;
+    const renumberField = renumberFieldFor(seg0) ?? FIELDS.renumber0307;
 
     if (!map.getSource(SOURCE.id)) {
       map.addSource(SOURCE.id, {

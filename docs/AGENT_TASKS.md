@@ -11,6 +11,7 @@
 - [x] T3 infograph 統計區 + About 頁 — 2026-07-13 agent 完成；主持人驗收 **9 成過**（build ✅、stats 數字抽驗 ✅、瀏覽器渲染 ✅），剩 1 項待確認（見驗收紀錄「T3 未結項」）
 - [ ] T4 Phase 2 動態層（修剪公告 weekly pipeline + 受保護樹木圖層）
 - [ ] T5 部署（Dockerfile/nginx/Zeabur）＋上線驗收
+- [x] T6 四時期升級（2026-07-29 快照）— 已驗收
 
 ---
 
@@ -74,6 +75,26 @@
 
 - Dockerfile + nginx.conf 抄 `mini-taiwan-info/frontend/`；Zeabur 上線；用戶拍板後才部署（鐵則）
 
+## T6 四時期升級（2026-07-29 快照）
+
+**背景**：三時期軌跡（2022 / 2024 / 2026）升級為四時期，新增 2026-07-29 匯出的第四時點，與既有第三時點
+（內容時點約 2026-03、2026-07-12 匯出）比對出新一段 `0307`（消失 694／新增 30／持續 91,339，最新清冊 91,369）。
+
+**工作 repo**：analytics repo（資料管線，另一 agent 平行產出）＋ 本 repo（前端，本卡）。
+
+**交付物**：
+- 4epoch pmtiles/stats/h3（analytics repo 產出：`street_trees_taipei_4epoch.pmtiles`＋ stats JSON 補 `0307` key
+  ＋ `h3_grid.geojson` 補 `*_0307` 欄位）
+- 前端四期化（本 repo）：`dataSource.ts` / `stats.ts` / 篩選預設 / Infograph waterfall / Hero KPI / About 敘事 /
+  AdvancedAnalysis / 地圖圖層 fallback 全數換成四期契約
+- `DATA_CONTRACT.md` 改版（反映四期欄位與 `0307` 段定義）
+
+**驗收標準**：
+- `pnpm exec tsc --noEmit` 0 error
+- `pnpm build` 過
+- 地圖三段切換（2224 / 2426 / 0307）正常渲染、三色分染與 popup 皆對應正確欄位
+- 0307 段「消失」694 點於地圖可見（對應 `status_0307 === "disappeared"`）
+
 ---
 
 ## 主持人驗收紀錄
@@ -84,3 +105,4 @@
 | T1 | 2026-07-13 | ✅ | DATA_CONTRACT §2 驗收表逐項相符（union 105,675 / traj 分布 / dbh 中位 24.0 / renumber 447）；pmtiles 兩側 md5 一致；audit 0 findings（repo 既有技術債與本案無關）。備註：species_count=292 定義為 2026 快照樹種數（三期 union 為 328）；契約 §4.5「51 筆 Diameter 空值」實測為 0（契約已過時，無影響）；`_trees_common.py` 共用模組屬合理抽取。**analytics 端變更未 commit，待用戶拍板。** |
 | T2 | 2026-07-13 | ✅ | 主持人實測：`pnpm build` 過、dev server 200、SwiftShader 瀏覽器實看——地圖三色樹點渲染（畫面計數 76,728 棵）、時段切 2022→2024 計數正確變 6,189/13,612、Hero KPI 與免責聲明到位、無 WebGL 時降級提示正常。**關鍵坑已記錄：mapbox-gl 必 pin 3.25.0**（3.26 會讓 mapbox-pmtiles 1.0.56 掛掉、整圖 0 features）；status 欄含 `absent` 必須始終過濾。三期軌跡（traj）視圖 disabled「深化中」屬合理範圍裁切，列後續。 |
 | T3 | 2026-07-13 | ✅（1 項未結） | 主持人已驗：`pnpm build` 過；stats 數字抽驗與 agent 回報一致（消失率 top3 = 亞力山大椰子 71.7／櫸 35.2／鐵刀木 27.6；淨流失榕樹 −763；淨增榜首洋紅風鈴木 +93——PLAN 裡的「水柳 +213」因基數<50 被 species.json 併入其他，agent 採 JSON 真值正確）；#stats 區瀏覽器渲染截圖 OK。**T3 未結項（接手第一件事）**：clusters.json 全量最大叢集是「線形公園 428 棵（北投·垂榕）」，但 T3 回報熱點卡片榜首為「松仁路 304」→ 推測卡片有排除公園類叢集（合理設計），**需開瀏覽器確認卡片實際排序與是否有註明「已排除公園」**；若無排除邏輯則是 bug 要修。另 agent 自報：手機單欄僅原始碼確認未截圖佐證。 |
+| T6 | 2026-07-30 | ✅ | 主持人驗收：管線 8 項硬驗收全過（union 105,700／traj 收合 bit-identical 重現舊三期／renumber_2426=447 不變／0307 段 694/30/91,339、renumber=10）；`tsc` 0 error、`pnpm build` 過；headed 瀏覽器實測四區（Hero KPI 91,369/694/30、三段切換、地圖紅點、四錨點瀑布、H3 0307）全對；「Qt」console 噪音經正式站對照排除回歸；species_list 孤兒產物已重產（305 種）。本機底圖 403 為 token URL-restricted 既知設計，非回歸。 |

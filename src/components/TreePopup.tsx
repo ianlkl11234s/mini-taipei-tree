@@ -20,10 +20,10 @@ function truthy(v: unknown): boolean {
 }
 
 export function TreePopup({ props, segment, x, y, onClose }: Props) {
-  const statusField = statusFieldFor(segment) ?? FIELDS.status2426;
+  const statusField = statusFieldFor(segment) ?? FIELDS.status0307;
   const status = String(props[statusField] ?? "") as TreeStatus;
   const meta = STATUS_META[status]; // absent / 未知 → undefined（不顯示狀態標籤）
-  const renumberField = renumberFieldFor(segment) ?? FIELDS.renumber2426;
+  const renumberField = renumberFieldFor(segment) ?? FIELDS.renumber0307;
 
   const species = String(props[FIELDS.species] ?? "").trim() || "未紀錄樹種";
   const region = String(props[FIELDS.region] ?? "").trim() || "—";

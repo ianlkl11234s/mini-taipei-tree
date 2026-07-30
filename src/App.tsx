@@ -39,7 +39,7 @@ export default function App() {
             <IconTree size={20} />
           </span>
           <span>
-            台北行道樹探索 <span className="sub">三時點清冊比對</span>
+            台北行道樹探索 <span className="sub">四時點清冊比對</span>
           </span>
         </div>
         <nav className="header-nav">

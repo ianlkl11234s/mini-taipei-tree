@@ -65,7 +65,7 @@ export function AdvancedAnalysis() {
           <div>
             <h3 className="sb-title">H3 網格離冊率分布</h3>
             <p className="sb-hint">
-              Resolution 9（邊長約 174m）· 2024→2026 · 綠＝低離冊率 · 紅＝高離冊率
+              Resolution 9（邊長約 174m）· 2026-03→2026-07 · 綠＝低離冊率 · 紅＝高離冊率
             </p>
           </div>
         </div>
@@ -101,7 +101,7 @@ export function AdvancedAnalysis() {
               paint: {
                 "fill-color": [
                   "interpolate", ["linear"],
-                  ["get", "ratio_2426"],
+                  ["get", "ratio_0307"],
                   0, "rgba(46,125,50,0.4)",
                   0.05, "rgba(156,204,101,0.5)",
                   0.10, "rgba(255,235,59,0.6)",
@@ -124,8 +124,8 @@ export function AdvancedAnalysis() {
               const f = e.features?.[0];
               if (!f) return;
               const p = f.properties!;
-              const ratio = p.ratio_2426;
-              const gone = p.disappeared_2426;
+              const ratio = p.ratio_0307;
+              const gone = p.disappeared_0307;
               const total = p.total;
               popup
                 .setLngLat(e.lngLat)
@@ -155,7 +155,7 @@ export function AdvancedAnalysis() {
           少量異動就會使比例劇烈波動。解讀時應同時參考格內總數。
         </div>
         <p className="sb-note">
-          H3 resolution 9 · 2024→2026 · 資料來源為公園處行道樹清冊三時點比對 · hover 六邊形可查看該格數據
+          H3 resolution 9 · 2026-03→2026-07 · 資料來源為公園處行道樹清冊四時點比對 · hover 六邊形可查看該格數據
         </p>
       </div>
     </section>

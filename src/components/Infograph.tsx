@@ -124,16 +124,16 @@ export function Infograph({ onFlyTo }: InfographProps) {
       </div>
       <h2 className="section-title">清冊數據摘要</h2>
       <p className="section-sub">
-        以下統計皆來自三時點清冊的比對結果。「消失」一律指
+        以下統計皆來自四時點清冊的比對結果。「消失」一律指
         <em style={{ fontStyle: "normal", fontWeight: 600 }}>該編號在下一時點的清冊中不再出現</em>，原因可能包含移除、枯死或編號重整。
       </p>
 
-      {/* ① 三時點總量 waterfall（全景，恆含公園） */}
+      {/* ① 四時點總量 waterfall（全景，恆含公園） */}
       <Block
         n="①"
-        title="三時點在冊總量變化"
+        title="四時點在冊總量變化"
         insight={<Overview1Insight overview={overview} />}
-        note="2022 / 2024 / 2026 三時點 · 全部（含公園綠地）· 深綠＝各時點在冊總量，綠＝新增、紅＝消失"
+        note="2022 / 2024 / 2026-03 / 2026-07 四時點 · 全部（含公園綠地）· 深綠＝各時點在冊總量，綠＝新增、紅＝消失"
       >
         <ChartLegend
           items={[
@@ -149,7 +149,7 @@ export function Infograph({ onFlyTo }: InfographProps) {
       <div className="stat-controls">
         <div className="sc-label">以下各圖套用</div>
         <div className="seg-switch" role="tablist" aria-label="時段切換">
-          {(["2224", "2426"] as SegKey[]).map((k) => (
+          {(["2224", "2426", "0307"] as SegKey[]).map((k) => (
             <button
               key={k}
               role="tab"
@@ -326,20 +326,27 @@ function buildWaterfall(ov: Overview): { bars: WFBar[]; yMax: number } {
   const t2022 = e("2022");
   const s24 = s("2224");
   const s26 = s("2426");
+  const s0307 = s("0307");
   const afterApp24 = t2022 + s24.appeared;
   const t2024 = e("2024");
   const afterApp26 = t2024 + s26.appeared;
-  const t2026 = e("2026");
+  const t2603 = e("2603");
+  const afterApp0307 = t2603 + s0307.appeared;
+  const t2607 = e("2607");
   const bars: WFBar[] = [
     { key: "e22", caption: "2022", from: 0, to: t2022, kind: "anchor" },
     { key: "a24", caption: "新增\n22→24", from: t2022, to: afterApp24, kind: "up" },
     { key: "d24", caption: "消失\n22→24", from: afterApp24, to: t2024, kind: "down" },
     { key: "e24", caption: "2024", from: 0, to: t2024, kind: "anchor" },
     { key: "a26", caption: "新增\n24→26", from: t2024, to: afterApp26, kind: "up" },
-    { key: "d26", caption: "消失\n24→26", from: afterApp26, to: t2026, kind: "down" },
-    { key: "e26", caption: "2026", from: 0, to: t2026, kind: "anchor" },
+    { key: "d26", caption: "消失\n24→26", from: afterApp26, to: t2603, kind: "down" },
+    { key: "e2603", caption: "2026-03", from: 0, to: t2603, kind: "anchor" },
+    { key: "a0307", caption: "新增\n03→07", from: t2603, to: afterApp0307, kind: "up" },
+    { key: "d0307", caption: "消失\n03→07", from: afterApp0307, to: t2607, kind: "down" },
+    { key: "e2607", caption: "2026-07", from: 0, to: t2607, kind: "anchor" },
   ];
-  const yMax = Math.ceil((afterApp24 * 1.04) / 5000) * 5000;
+  const peak = Math.max(t2022, afterApp24, t2024, afterApp26, t2603, afterApp0307, t2607);
+  const yMax = Math.ceil((peak * 1.04) / 5000) * 5000;
   return { bars, yMax };
 }
 
@@ -468,10 +475,12 @@ function buildDistrictNet(
 function Overview1Insight({ overview }: { overview: NonNullable<ReturnType<typeof useStats>>["overview"] }) {
   const s24 = overview.segments.find((x) => x.key === "2224")!;
   const s26 = overview.segments.find((x) => x.key === "2426")!;
+  const s0307 = overview.segments.find((x) => x.key === "0307")!;
   return (
     <>
-      三時點總量變化：2022→2024 淨變化 <b>{fmtSigned(s24.net)}</b> 棵，2024→2026 淨變化{" "}
-      <b>{fmtSigned(s26.net)}</b> 棵。每一段皆同時有新入冊與離冊紀錄，
+      四時點總量變化：2022→2024 淨變化 <b>{fmtSigned(s24.net)}</b> 棵，2024→2026-03 淨變化{" "}
+      <b>{fmtSigned(s26.net)}</b> 棵，2026-03→2026-07 淨變化 <b>{fmtSigned(s0307.net)}</b> 棵
+      （消失 {fmtInt(s0307.disappeared)}、新增 {fmtInt(s0307.appeared)}）。每一段皆同時有新入冊與離冊紀錄，
       <b>總量接近不代表個別樹木未異動</b>。
     </>
   );
@@ -495,6 +504,14 @@ function BinsInsight({
       <>
         樹高與離冊率呈單調遞減：從 &lt;5m 的 {fmtPct(first)} 降至 &gt;20m 的 {fmtPct(last)}。
         胸徑則無此規律——最細與最粗的級距離冊率皆偏高，呈 <b>U 型</b>分布。
+      </>
+    );
+  }
+  if (seg === "0307") {
+    return (
+      <>
+        2026-03→2026-07 這一段：離冊率隨樹高從 &lt;5m 的 {fmtPct(first)} 變化到 &gt;20m 的 {fmtPct(last)}；
+        胸徑同樣未見穩定的單調趨勢，判讀時建議搭配基數 n 一併參考。
       </>
     );
   }
@@ -524,6 +541,14 @@ function ClusterInsight({
     return (
       <>
         同一路段集中離冊最多的地點：<b>{top.road}</b>（{top.dist}），共 <b>{fmtInt(top.size)} 棵</b>，
+        主要樹種為{top.species_top}。
+      </>
+    );
+  }
+  if (seg === "0307") {
+    return (
+      <>
+        同一路段集中從清冊消失最多的地點：<b>{top.road}</b>（{top.dist}），共 <b>{fmtInt(top.size)} 棵</b>，
         主要樹種為{top.species_top}。
       </>
     );

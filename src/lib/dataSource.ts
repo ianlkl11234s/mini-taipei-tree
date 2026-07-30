@@ -2,8 +2,8 @@
  * dataSource — 資料源 adapter（唯一換源點）
  * =============================================================
  * 前端一切 Mapbox expression 都透過 FIELDS 讀屬性名，不硬編欄名。
- * 現行來源：T1 產出的三期軌跡成品 street_trees_taipei_3epoch
- * （105,675 點，2022 / 2024 / 2026 三時點，小寫契約欄名）。
+ * 現行來源：四時期軌跡成品 street_trees_taipei_4epoch
+ * （2022 / 2024 / 2026-03 / 2026-07 四時點，小寫契約欄名）。
  *
  * ▶ 換源只需改本檔：SOURCE（url + sourceLayer）、FIELDS、SEGMENTS。
  *   其餘元件（篩選、圖層、popup）皆讀本檔匯出，不需改動。
@@ -22,10 +22,12 @@ export interface FieldMap {
   /** 各段狀態欄名（值域含 absent = 該段不參與）。 */
   status2224: string | null;
   status2426: string;
+  status0307: string;
   /** 各段疑似重編號欄名（0/1 或 Boolean）。 */
   renumber2224: string | null;
   renumber2426: string;
-  /** 三期軌跡碼（3 碼 {2022}{2024}{2026}）。 */
+  renumber0307: string;
+  /** 四期軌跡碼（4 碼 {2022}{2024}{2026-03}{2026-07}）。 */
   traj: string | null;
 }
 
@@ -36,17 +38,17 @@ export interface SegmentDef {
   note?: string;
 }
 
-export type SegmentKey = "2224" | "2426" | "traj";
+export type SegmentKey = "2224" | "2426" | "0307" | "traj";
 
-/** 現行資料源（三期軌跡 PMTiles）。 */
+/** 現行資料源（四期軌跡 PMTiles）。 */
 export const SOURCE = {
   id: "street-trees",
-  url: "/data/street_trees_taipei_3epoch.pmtiles",
-  sourceLayer: "street_trees_taipei_3epoch",
+  url: "/data/street_trees_taipei_4epoch.pmtiles",
+  sourceLayer: "street_trees_taipei_4epoch",
   speciesListUrl: "/data/species_list.json",
 } as const;
 
-/** 三期契約欄位對照（小寫欄名）。 */
+/** 四期契約欄位對照（小寫欄名）。 */
 export const FIELDS: FieldMap = {
   treeId: "tree_id",
   species: "species",
@@ -57,8 +59,10 @@ export const FIELDS: FieldMap = {
   surveyDate: "survey_date",
   status2224: "status_2224", // ∈ persisted | disappeared | appeared | absent
   status2426: "status_2426",
+  status0307: "status_0307",
   renumber2224: "renumber_2224",
   renumber2426: "renumber_2426",
+  renumber0307: "renumber_0307",
   traj: "traj",
 };
 
@@ -66,15 +70,17 @@ export const FIELDS: FieldMap = {
 export const SEGMENTS: SegmentDef[] = [
   { key: "2224", label: "2022 → 2024", available: true },
   { key: "2426", label: "2024 → 2026", available: true },
+  { key: "0307", label: "2026-03 → 2026-07", available: true },
   { key: "traj", label: "三期軌跡", available: false, note: "深化中" },
 ];
 
-export const DEFAULT_SEGMENT: SegmentKey = "2426";
+export const DEFAULT_SEGMENT: SegmentKey = "0307";
 
 /** 取某段的狀態欄名（不可用回 null）。 */
 export function statusFieldFor(seg: SegmentKey): string | null {
   if (seg === "2224") return FIELDS.status2224;
   if (seg === "2426") return FIELDS.status2426;
+  if (seg === "0307") return FIELDS.status0307;
   return null; // traj 走軌跡碼，非單一狀態欄
 }
 
@@ -82,6 +88,7 @@ export function statusFieldFor(seg: SegmentKey): string | null {
 export function renumberFieldFor(seg: SegmentKey): string | null {
   if (seg === "2224") return FIELDS.renumber2224;
   if (seg === "2426") return FIELDS.renumber2426;
+  if (seg === "0307") return FIELDS.renumber0307;
   return null;
 }
 

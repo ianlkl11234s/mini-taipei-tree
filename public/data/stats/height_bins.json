@@ -91,6 +91,48 @@
         "removal_rate": 0.0293,
         "removal_rate_street": 0.0302
       }
+    ],
+    "0307": [
+      {
+        "bin": "<5",
+        "base": 12246,
+        "disappeared": 122,
+        "appeared": 22,
+        "removal_rate": 0.01,
+        "removal_rate_street": 0.0117
+      },
+      {
+        "bin": "5-10",
+        "base": 41596,
+        "disappeared": 318,
+        "appeared": 6,
+        "removal_rate": 0.0076,
+        "removal_rate_street": 0.0085
+      },
+      {
+        "bin": "10-15",
+        "base": 30651,
+        "disappeared": 236,
+        "appeared": 2,
+        "removal_rate": 0.0077,
+        "removal_rate_street": 0.0083
+      },
+      {
+        "bin": "15-20",
+        "base": 7090,
+        "disappeared": 17,
+        "appeared": 0,
+        "removal_rate": 0.0024,
+        "removal_rate_street": 0.0025
+      },
+      {
+        "bin": ">20",
+        "base": 436,
+        "disappeared": 1,
+        "appeared": 0,
+        "removal_rate": 0.0023,
+        "removal_rate_street": 0.0024
+      }
     ]
   }
 }

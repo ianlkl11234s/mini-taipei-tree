@@ -288,6 +288,18 @@
     "species_top": "木棉"
   },
   {
+    "segment": "0307",
+    "cluster_id": 2739,
+    "road": "環河北路三段",
+    "dist": "士林區",
+    "size": 42,
+    "centroid": [
+      121.504902,
+      25.086311
+    ],
+    "species_top": "白千層"
+  },
+  {
     "segment": "2224",
     "cluster_id": 1372,
     "road": "中正路",
@@ -344,6 +356,18 @@
     "centroid": [
       121.523603,
       25.094807
+    ],
+    "species_top": "榕樹"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2738,
+    "road": "中山北路五段378巷",
+    "dist": "士林區",
+    "size": 36,
+    "centroid": [
+      121.529499,
+      25.090425
     ],
     "species_top": "榕樹"
   },
@@ -480,6 +504,18 @@
     "species_top": "榕樹"
   },
   {
+    "segment": "0307",
+    "cluster_id": 2728,
+    "road": "信義路五段",
+    "dist": "信義區",
+    "size": 27,
+    "centroid": [
+      121.56336,
+      25.032869
+    ],
+    "species_top": "大花紫薇"
+  },
+  {
     "segment": "2224",
     "cluster_id": 238,
     "road": "光復南路",
@@ -588,6 +624,18 @@
     "species_top": "楓香"
   },
   {
+    "segment": "0307",
+    "cluster_id": 2740,
+    "road": "環河北路三段",
+    "dist": "士林區",
+    "size": 24,
+    "centroid": [
+      121.505913,
+      25.0847
+    ],
+    "species_top": "白千層"
+  },
+  {
     "segment": "2224",
     "cluster_id": 1313,
     "road": "基河路",
@@ -622,6 +670,18 @@
       25.043866
     ],
     "species_top": "白千層"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2756,
+    "road": "辛亥路一段",
+    "dist": "大安區",
+    "size": 23,
+    "centroid": [
+      121.532304,
+      25.022085
+    ],
+    "species_top": "蠟腸樹"
   },
   {
     "segment": "2224",
@@ -718,6 +778,30 @@
       25.022602
     ],
     "species_top": "山櫻花"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2746,
+    "road": "基隆路三段",
+    "dist": "大安區",
+    "size": 21,
+    "centroid": [
+      121.547603,
+      25.019684
+    ],
+    "species_top": "榕樹"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2749,
+    "road": "復興南路一段",
+    "dist": "大安區",
+    "size": 21,
+    "centroid": [
+      121.543696,
+      25.039514
+    ],
+    "species_top": "木棉"
   },
   {
     "segment": "2224",
@@ -838,6 +922,18 @@
       24.986727
     ],
     "species_top": "榕樹"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2733,
+    "road": "松山路",
+    "dist": "信義區",
+    "size": 19,
+    "centroid": [
+      121.577756,
+      25.048109
+    ],
+    "species_top": "大花紫薇"
   },
   {
     "segment": "2224",
@@ -1042,6 +1138,30 @@
       25.035252
     ],
     "species_top": "烏心石"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2737,
+    "road": "福國路",
+    "dist": "北投區",
+    "size": 17,
+    "centroid": [
+      121.50597,
+      25.101451
+    ],
+    "species_top": "苦楝"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2757,
+    "road": "辛亥路三段",
+    "dist": "大安區",
+    "size": 17,
+    "centroid": [
+      121.552811,
+      25.014472
+    ],
+    "species_top": "洋紅風鈴木"
   },
   {
     "segment": "2224",
@@ -1524,6 +1644,30 @@
     "species_top": "紫薇"
   },
   {
+    "segment": "0307",
+    "cluster_id": 2735,
+    "road": "莊敬路",
+    "dist": "信義區",
+    "size": 13,
+    "centroid": [
+      121.561447,
+      25.032376
+    ],
+    "species_top": "樟樹"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2752,
+    "road": "復興南路二段",
+    "dist": "大安區",
+    "size": 13,
+    "centroid": [
+      121.543471,
+      25.031496
+    ],
+    "species_top": "木棉"
+  },
+  {
     "segment": "2224",
     "cluster_id": 789,
     "road": "市民大道八段",
@@ -1666,6 +1810,18 @@
       25.039003
     ],
     "species_top": "鐵刀木"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2734,
+    "road": "松智路",
+    "dist": "信義區",
+    "size": 12,
+    "centroid": [
+      121.565618,
+      25.036546
+    ],
+    "species_top": "印度紫檀"
   },
   {
     "segment": "2224",
@@ -2110,5 +2266,221 @@
       25.053065
     ],
     "species_top": "白千層"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2742,
+    "road": "和平東路一段",
+    "dist": "大安區",
+    "size": 10,
+    "centroid": [
+      121.524431,
+      25.026983
+    ],
+    "species_top": "白千層"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2729,
+    "road": "市府路",
+    "dist": "信義區",
+    "size": 8,
+    "centroid": [
+      121.563502,
+      25.034281
+    ],
+    "species_top": "盾柱木"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2732,
+    "road": "松山路",
+    "dist": "信義區",
+    "size": 8,
+    "centroid": [
+      121.577805,
+      25.044127
+    ],
+    "species_top": "杜英"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2741,
+    "road": "塔城街",
+    "dist": "大同區",
+    "size": 8,
+    "centroid": [
+      121.509887,
+      25.048673
+    ],
+    "species_top": "風鈴木"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2751,
+    "road": "復興南路二段",
+    "dist": "大安區",
+    "size": 8,
+    "centroid": [
+      121.543433,
+      25.023168
+    ],
+    "species_top": "白千層"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2730,
+    "road": "松信路",
+    "dist": "信義區",
+    "size": 7,
+    "centroid": [
+      121.572076,
+      25.042525
+    ],
+    "species_top": "榕樹"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2731,
+    "road": "松勤街",
+    "dist": "信義區",
+    "size": 7,
+    "centroid": [
+      121.562337,
+      25.032031
+    ],
+    "species_top": "盾柱木"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2736,
+    "road": "港墘路",
+    "dist": "內湖區",
+    "size": 7,
+    "centroid": [
+      121.575273,
+      25.077158
+    ],
+    "species_top": "大花紫薇"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2744,
+    "road": "和平東路二段",
+    "dist": "大安區",
+    "size": 7,
+    "centroid": [
+      121.54251,
+      25.025144
+    ],
+    "species_top": "白千層"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2747,
+    "road": "建國南路一段",
+    "dist": "大安區",
+    "size": 7,
+    "centroid": [
+      121.538168,
+      25.039258
+    ],
+    "species_top": "盾柱木"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2750,
+    "road": "復興南路一段",
+    "dist": "大安區",
+    "size": 7,
+    "centroid": [
+      121.543667,
+      25.036164
+    ],
+    "species_top": "木棉"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2753,
+    "road": "敦化南路二段",
+    "dist": "大安區",
+    "size": 7,
+    "centroid": [
+      121.548567,
+      25.027912
+    ],
+    "species_top": "榕樹"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2743,
+    "road": "和平東路二段",
+    "dist": "大安區",
+    "size": 6,
+    "centroid": [
+      121.540081,
+      25.025377
+    ],
+    "species_top": "白千層"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2754,
+    "road": "敦南街",
+    "dist": "大安區",
+    "size": 6,
+    "centroid": [
+      121.54714,
+      25.021023
+    ],
+    "species_top": "山櫻花"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2755,
+    "road": "新生南路一段",
+    "dist": "大安區",
+    "size": 6,
+    "centroid": [
+      121.532923,
+      25.035461
+    ],
+    "species_top": "白千層"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2727,
+    "road": "北安路",
+    "dist": "中山區",
+    "size": 5,
+    "centroid": [
+      121.549235,
+      25.08611
+    ],
+    "species_top": "榕樹"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2745,
+    "road": "和平東路二段76巷",
+    "dist": "大安區",
+    "size": 5,
+    "centroid": [
+      121.538974,
+      25.024734
+    ],
+    "species_top": "青楓"
+  },
+  {
+    "segment": "0307",
+    "cluster_id": 2748,
+    "road": "建國南路二段",
+    "dist": "大安區",
+    "size": 5,
+    "centroid": [
+      121.537984,
+      25.024441
+    ],
+    "species_top": "豔紫荊"
   }
 ]

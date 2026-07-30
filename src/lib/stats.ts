@@ -8,12 +8,13 @@
  */
 import { useEffect, useState } from "react";
 
-/** 段代碼：2022→2024 / 2024→2026。 */
-export type SegKey = "2224" | "2426";
+/** 段代碼：2022→2024 / 2024→2026 / 2026-03→2026-07。 */
+export type SegKey = "2224" | "2426" | "0307";
 
 export const SEG_META: Record<SegKey, { label: string; from: string; to: string }> = {
   "2224": { label: "2022 → 2024", from: "2022-10", to: "2024-11" },
   "2426": { label: "2024 → 2026", from: "2024-11", to: "2026-07" },
+  "0307": { label: "2026-03 → 2026-07", from: "2026-03", to: "2026-07" },
 };
 
 // ---- overview.json ----

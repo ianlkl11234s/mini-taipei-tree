@@ -27,6 +27,7 @@
 | 禁航區資料 | 台北市 192 筆禁飛區 GeoJSON（從 mini-taiwan-pulse 提取） |
 | 部署 | Dockerfile + nginx.conf + Zeabur 上線（含 gzip off PMTiles 修復） |
 | Mapbox token | 已換為 URL-restricted 的新 token |
+| 四期擴充 | 新增 `street_trees_taipei_4epoch.pmtiles`（105,700 點，四時點 traj）；預設 segment 改為 `0307`（2026-03→2026-07，最新一段），`2224`/`2426` 保留供歷史切換；契約見 `docs/DATA_CONTRACT.md` |
 
 ## 4. 怎麼跑
 

@@ -15,9 +15,9 @@ interface Kpi {
 }
 
 const INITIAL_KPIS: Kpi[] = [
-  { label: "現有行道樹", value: 92033, delta: null, accent: "var(--forest)", foot: "2026-07 台北市在冊逐棵行道樹" },
-  { label: "2024 → 2026 消失", value: 7494, delta: "7.9%", accent: "var(--st-gone)", foot: "從清冊消失，不等於一定被砍除" },
-  { label: "2024 → 2026 新增", value: 4029, delta: null, accent: "var(--st-new)", foot: "同期新入清冊的行道樹" },
+  { label: "現有行道樹", value: 91369, delta: null, accent: "var(--forest)", foot: "2026-07 台北市在冊逐棵行道樹" },
+  { label: "2026-03 → 2026-07 消失", value: 694, delta: "0.75%", accent: "var(--st-gone)", foot: "從清冊消失，不等於一定被砍除" },
+  { label: "2026-03 → 2026-07 新增", value: 30, delta: null, accent: "var(--st-new)", foot: "同期新入清冊的行道樹" },
 ];
 
 export function Hero() {
@@ -28,8 +28,8 @@ export function Hero() {
     fetch(`${base}data/stats/overview.json`)
       .then((r) => r.json() as Promise<Overview>)
       .then((d) => {
-        const now = d.epochs.find((e) => e.key === "2026")?.total ?? 92033;
-        const seg = d.segments.find((s) => s.key === "2426");
+        const now = d.epochs.find((e) => e.key === "2607")?.total ?? 91369;
+        const seg = d.segments.find((s) => s.key === "0307");
         if (!seg) return;
         setKpis([
           { ...INITIAL_KPIS[0], value: now },
@@ -44,13 +44,13 @@ export function Hero() {
 
   return (
     <section className="hero">
-      <span className="hero-eyebrow">台北市 · 逐棵行道樹 · 三時點清冊比對</span>
+      <span className="hero-eyebrow">台北市 · 逐棵行道樹 · 四時點清冊比對</span>
       <h1>
         從公園處清冊<br />
         <span className="accent">看見樹種的變化</span>
       </h1>
       <p className="lede">
-        比對 2022、2024、2026 三個時點的台北市公園處行道樹清冊，呈現每一棵樹在不同時點的
+        比對 2022-10、2024-11、2026-03、2026-07 四個時點的台北市公園處行道樹清冊，呈現每一棵樹在不同時點的
         <em>在冊、離冊與新入冊</em>狀態。
       </p>
       <p className="disclaimer">

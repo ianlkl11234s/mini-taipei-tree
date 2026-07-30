@@ -1,4 +1,4 @@
-import type { SegmentKey } from "../lib/dataSource";
+import { DEFAULT_SEGMENT, type SegmentKey } from "../lib/dataSource";
 import type { TreeStatus } from "../lib/status";
 
 export type MapViewMode = "points" | "heatmap" | "drone";
@@ -45,7 +45,7 @@ export interface FilterState {
 
 export function defaultFilterState(): FilterState {
   return {
-    segment: "2426",
+    segment: DEFAULT_SEGMENT,
     statuses: { disappeared: true, appeared: true, persisted: true },
     species: new Set(),
     dbhRange: [0, DBH_MAX_CAP],

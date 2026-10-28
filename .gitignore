@@ -16,3 +16,6 @@ dist-ssr/
 .vscode/
 .idea/
 *.tsbuildinfo
+
+# Cloudflare wrangler
+.wrangler/

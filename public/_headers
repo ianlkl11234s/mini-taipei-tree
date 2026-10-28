@@ -1,0 +1,34 @@
+# Cloudflare Workers 靜態資產的 header（對應原 nginx.conf）
+# 多條規則同時符合時同名 header 會合併，所以下方規則用「! Cache-Control」先拿掉上層的值。
+
+# 全站安全性 header（nginx 每個 location 都加的那組）
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), camera=(), microphone=()
+  Strict-Transport-Security: max-age=31536000
+
+# index.html：每次向伺服器確認新版
+/
+  Cache-Control: public, max-age=0, must-revalidate
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# 檔名帶 hash 的 build 產物：一年 immutable
+/assets/*
+  Cache-Control: public, immutable, max-age=31536000
+
+# /data 其他靜態資源（JSON、GeoJSON）：1 小時
+/data/*
+  Cache-Control: public, max-age=3600
+
+# PMTiles：走 Range 請求；no-transform 防止 Cloudflare 壓縮（壓縮會讓 206 失效）
+/data/*.pmtiles
+  ! Cache-Control
+  Cache-Control: public, max-age=86400, no-transform
+  Content-Type: application/x-protobuf
+  Access-Control-Allow-Origin: *
+  Access-Control-Allow-Methods: GET, HEAD, OPTIONS
+  Access-Control-Allow-Headers: Range
+  Access-Control-Expose-Headers: Content-Length, Content-Range, Accept-Ranges

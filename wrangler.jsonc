@@ -1,0 +1,19 @@
+// Cloudflare Workers 部署設定（取代 Zeabur nginx；Zeabur 2026-12 停運）
+// 網頁本體：dist/ 走 Workers 靜態資產；header 與快取政策對應原 nginx.conf，寫在 public/_headers。
+// /assets/*、/data/*：先經 worker/index.ts（PMTiles 的 Range 206、缺檔回 404 而不是 index.html）
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "mini-taipei-trees",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-10-01",
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS",
+    // 對應 nginx 的 try_files $uri $uri/ /index.html：找不到的路徑回 index.html
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/assets/*", "/data/*"]
+  },
+  // 尚未切正式網域（mini-tree.itsmigu.com）；先用 workers.dev 測試網址比對
+  "workers_dev": true,
+  "observability": { "enabled": true }
+}

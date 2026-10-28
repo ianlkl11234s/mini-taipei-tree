@@ -1,0 +1,2 @@
+# wrangler 部署時略過的檔案
+.DS_Store
